@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 4: Exception Handling - TD Blog</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo"><h2>TD Blog</h2></div>
+            <ul class="nav-menu">
+                <li><a href="index.html"><i class="fas fa-home"></i> Trang Chủ</a></li>
+                <li><a href="blog.html"><i class="fas fa-blog"></i> Bài viết</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> Liên hệ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <article class="post-detail">
+        <div class="container">
+            <div class="post-detail-header">
+                <a href="blog.html" class="back-link"><i class="fas fa-arrow-left"></i> Quay lại</a>
+                <div class="post-meta">
+                    <span class="post-number-large">Bài 4</span>
+                    <span class="post-category java"><i class="fab fa-java"></i> Java</span>
+                </div>
+                <h1 class="post-detail-title">Exception Handling - Xử Lý Lỗi Trong Java</h1>
+            </div>
+
+            <div class="post-layout">
+                <aside class="table-of-contents">
+                    <h3><i class="fas fa-list"></i> Mục Lục</h3>
+                    <nav class="toc-nav">
+                        <a href="#section-1" class="toc-link">1.Exception là gì?</a>
+                        <a href="#section-2" class="toc-link">2.Phân loại Exception</a>
+                        <a href="#section-3" class="toc-link">3.Try-Catch-Finally</a>
+                        <a href="#section-4" class="toc-link">4.Throw và Throws</a>
+                        <a href="#section-5" class="toc-link">5.Custom Exception</a>
+                        <a href="#section-6" class="toc-link">6.Best Practices</a>
+                    </nav>
+                </aside>
+
+                <div class="post-main-content">
+                    <section id="section-1" class="content-section">
+                        <h2><span class="section-number">1</span> Exception là gì?</h2>
+                        <p>
+                            Exception là một sự kiện bất thường xảy ra trong quá trình thực thi chương trình, làm gián đoạn 
+                            luồng bình thường của chương trình. Khi một exception xảy ra, Java tạo ra một exception object 
+                            chứa thông tin về lỗi.
+                        </p>
+                        <h3>Tại sao cần Exception Handling?</h3>
+                        <ul>
+                            <li><strong>Tránh crash:</strong> Chương trình không bị dừng đột ngột</li>
+                            <li><strong>Xử lý lỗi:</strong> Có thể phục hồi hoặc thông báo lỗi cho người dùng</li>
+                            <li><strong>Debug dễ dàng:</strong> Biết chính xác lỗi xảy ra ở đâu</li>
+                            <li><strong>Code sạch hơn:</strong> Tách biệt logic chính và xử lý lỗi</li>
+                        </ul>
+                        <h3>Exception Hierarchy</h3>
+                        <p>Tất cả exceptions trong Java đều kế thừa từ class <code>Throwable</code>:</p>
+                        <pre><code>Throwable
+├── Error (System errors - không nên catch)
+│   ├── OutOfMemoryError
+│   ├── StackOverflowError
+│   └── ...
+└── Exception
+    ├── RuntimeException (Unchecked)
+    │   ├── NullPointerException
+    │   ├── ArrayIndexOutOfBoundsException
+    │   ├── ArithmeticException
+    │   └── ...
+    └── IOException, SQLException... (Checked)</code></pre>
+                    </section>
+
+                    <section id="section-2" class="content-section">
+                        <h2><span class="section-number">2</span> Phân loại Exception</h2>
+                        
+                        <h3>Checked Exception (Compile-time Exception)</h3>
+                        <p>
+                            Là các exception được kiểm tra tại compile time. Compiler bắt buộc phải xử lý (catch) 
+                            hoặc khai báo (throws) các exceptions này.
+                        </p>
+                        <ul>
+                            <li><strong>IOException:</strong> Lỗi khi đọc/ghi file</li>
+                            <li><strong>SQLException:</strong> Lỗi khi làm việc với database</li>
+                            <li><strong>FileNotFoundException:</strong> File không tồn tại</li>
+                            <li><strong>ClassNotFoundException:</strong> Class không tìm thấy</li>
+                        </ul>
+                        <pre><code>import java.io.*;
+
+public class CheckedExample {
+    // Phải khai báo throws hoặc dùng try-catch
+    public void readFile() throws IOException {
+        FileReader file = new FileReader("data.txt");
+        BufferedReader reader = new BufferedReader(file);
+        String line = reader.readLine();
+        reader.close();
+    }
+    
+    // Hoặc dùng try-catch
+    public void readFileSafe() {
+        try {
+            FileReader file = new FileReader("data.txt");
+            BufferedReader reader = new BufferedReader(file);
+            String line = reader.readLine();
+            reader.close();
+        } catch (IOException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}</code></pre>
+
+                        <h3>Unchecked Exception (Runtime Exception)</h3>
+                        <p>
+                            Là các exception xảy ra tại runtime. Compiler không kiểm tra, không bắt buộc phải xử lý.
+                        </p>
+                        <ul>
+                            <li><strong>NullPointerException:</strong> Truy cập object null</li>
+                            <li><strong>ArrayIndexOutOfBoundsException:</strong> Index vượt quá kích thước mảng</li>
+                            <li><strong>ArithmeticException:</strong> Lỗi tính toán (chia cho 0)</li>
+                            <li><strong>NumberFormatException:</strong> Chuyển đổi String sang số không hợp lệ</li>
+                        </ul>
+                        <pre><code>public class UncheckedExample {
+    public static void main(String[] args) {
+        // ArithmeticException
+        int result = 10 / 0; // Chia cho 0
+        
+        // NullPointerException
+        String text = null;
+        int length = text.length(); // text là null
+        
+        // ArrayIndexOutOfBoundsException
+        int[] numbers = {1, 2, 3};
+        int num = numbers[5]; // Index không tồn tại
+        
+        // NumberFormatException
+        int value = Integer.parseInt("abc"); // Không thể convert
+    }
+}</code></pre>
+                    </section>
+
+                    <section id="section-3" class="content-section">
+                        <h2><span class="section-number">3</span> Try-Catch-Finally</h2>
+                        
+                        <h3>Cú pháp cơ bản</h3>
+                        <pre><code>try {
+    // Code có thể gây ra exception
+} catch (ExceptionType e) {
+    // Xử lý exception
+} finally {
+    // Code luôn được thực thi (optional)
+}</code></pre>
+
+                        <h3>Ví dụ chi tiết</h3>
+                        <pre><code>public class TryCatchExample {
+    public static void main(String[] args) {
+        try {
+            int[] numbers = {1, 2, 3};
+            System.out.println(numbers[5]); // Lỗi!
+            
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Error: Index vượt quá mảng!");
+            System.out.println("Message: " + e.getMessage());
+            e.printStackTrace(); // In stack trace để debug
+        }
+        
+        System.out.println("Program continues...");
+    }
+}</code></pre>
+
+                        <h3>Multiple Catch Blocks</h3>
+                        <p>Xử lý nhiều loại exception khác nhau:</p>
+                        <pre><code>public class MultipleCatch {
+    public static void main(String[] args) {
+        try {
+            String text = args[0]; // Có thể lỗi nếu không có args
+            int number = Integer.parseInt(text); // Có thể lỗi nếu text không phải số
+            int result = 100 / number; // Có thể lỗi nếu number = 0
+            System.out.println("Result: " + result);
+            
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Vui lòng nhập một số!");
+            
+        } catch (NumberFormatException e) {
+            System.out.println("Input phải là số!");
+            
+        } catch (ArithmeticException e) {
+            System.out.println("Không thể chia cho 0!");
+            
+        } catch (Exception e) {
+            // Catch tất cả exceptions còn lại
+            System.out.println("Có lỗi xảy ra: " + e.getMessage());
+        }
+    }
+}</code></pre>
+
+                        <h3>Multi-catch (Java 7+)</h3>
+                        <pre><code>try {
+    // Some code
+} catch (IOException | SQLException e) {
+    // Xử lý cả hai exceptions giống nhau
+    System.out.println("Error: " + e.getMessage());
+}</code></pre>
+
+                        <h3>Finally Block</h3>
+                        <p>Finally block luôn được thực thi, dù có exception hay không:</p>
+                        <pre><code>public class FinallyExample {
+    public static void main(String[] args) {
+        FileReader file = null;
+        try {
+            file = new FileReader("data.txt");
+            // Đọc file
+            
+        } catch (IOException e) {
+            System.out.println("Error: " + e.getMessage());
+            
+        } finally {
+            // Đóng file - luôn được thực thi
+            try {
+                if (file != null) {
+                    file.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}</code></pre>
+
+                        <h3>Try-with-resources (Java 7+)</h3>
+                        <p>Tự động đóng resources, không cần finally:</p>
+                        <pre><code>public class TryWithResources {
+    public static void main(String[] args) {
+        // Tự động đóng file sau khi sử dụng
+        try (FileReader file = new FileReader("data.txt");
+             BufferedReader reader = new BufferedReader(file)) {
+            
+            String line = reader.readLine();
+            System.out.println(line);
+            
+        } catch (IOException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+        // File tự động đóng ở đây
+    }
+}</code></pre>
+                    </section>
+
+                    <section id="section-4" class="content-section">
+                        <h2><span class="section-number">4</span> Throw và Throws</h2>
+                        
+                        <h3>Throw - Ném exception</h3>
+                        <p>Sử dụng để chủ động ném một exception:</p>
+                        <pre><code>public class ThrowExample {
+    public static void checkAge(int age) {
+        if (age < 18) {
+            // Ném exception
+            throw new IllegalArgumentException("Tuổi phải >= 18");
+        }
+        System.out.println("Valid age: " + age);
+    }
+    
+    public static void main(String[] args) {
+        try {
+            checkAge(15); // Sẽ throw exception
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}</code></pre>
+
+                        <h3>Throws - Khai báo exception</h3>
+                        <p>Khai báo rằng method có thể throw exception, để caller xử lý:</p>
+                        <pre><code>import java.io.*;
+
+public class ThrowsExample {
+    // Khai báo throws - caller phải xử lý
+    public static void readFile(String filename) throws IOException {
+        FileReader file = new FileReader(filename);
+        BufferedReader reader = new BufferedReader(file);
+        String line = reader.readLine();
+        reader.close();
+    }
+    
+    public static void main(String[] args) {
+        try {
+            readFile("data.txt");
+        } catch (IOException e) {
+            System.out.println("Cannot read file: " + e.getMessage());
+        }
+    }
+}</code></pre>
+
+                        <h3>Throws multiple exceptions</h3>
+                        <pre><code>public void processFile(String filename) 
+        throws IOException, SQLException {
+    // Method có thể throw cả 2 exceptions
+}</code></pre>
+                    </section>
+
+                    <section id="section-5" class="content-section">
+                        <h2><span class="section-number">5</span> Custom Exception</h2>
+                        <p>
+                            Tạo custom exception để xử lý các tình huống đặc thù trong business logic:
+                        </p>
+                        
+                        <h3>Tạo Custom Checked Exception</h3>
+                        <pre><code>// Kế thừa từ Exception
+public class InvalidAgeException extends Exception {
+    public InvalidAgeException() {
+        super("Invalid age provided");
+    }
+    
+    public InvalidAgeException(String message) {
+        super(message);
+    }
+    
+    public InvalidAgeException(String message, Throwable cause) {
+        super(message, cause);
+    }
+}</code></pre>
+
+                        <h3>Tạo Custom Unchecked Exception</h3>
+                        <pre><code>// Kế thừa từ RuntimeException
+public class InsufficientBalanceException extends RuntimeException {
+    private double balance;
+    private double amount;
+    
+    public InsufficientBalanceException(double balance, double amount) {
+        super("Insufficient balance. Balance: " + balance + ", Amount: " + amount);
+        this.balance = balance;
+        this.amount = amount;
+    }
+    
+    public double getBalance() {
+        return balance;
+    }
+    
+    public double getAmount() {
+        return amount;
+    }
+}</code></pre>
+
+                        <h3>Sử dụng Custom Exception</h3>
+                        <pre><code>public class BankAccount {
+    private double balance;
+    
+    public BankAccount(double balance) {
+        this.balance = balance;
+    }
+    
+    public void withdraw(double amount) throws InvalidAgeException {
+        if (amount <= 0) {
+            throw new IllegalArgumentException("Amount must be positive");
+        }
+        
+        if (amount > balance) {
+            throw new InsufficientBalanceException(balance, amount);
+        }
+        
+        balance -= amount;
+        System.out.println("Withdrawn: " + amount);
+    }
+    
+    public static void main(String[] args) {
+        BankAccount account = new BankAccount(1000);
+        
+        try {
+            account.withdraw(1500);
+        } catch (InsufficientBalanceException e) {
+            System.out.println("Error: " + e.getMessage());
+            System.out.println("Your balance: " + e.getBalance());
+            System.out.println("Amount requested: " + e.getAmount());
+        }
+    }
+}</code></pre>
+                    </section>
+
+                    <section id="section-6" class="content-section">
+                        <h2><span class="section-number">6</span> Best Practices</h2>
+                        
+                        <h3>Các nguyên tắc nên tuân theo</h3>
+                        <ul>
+                            <li><strong>Catch cụ thể trước, generic sau:</strong> Catch exception cụ thể trước Exception chung</li>
+                            <li><strong>Không bỏ trống catch block:</strong> Luôn xử lý hoặc log exception</li>
+                            <li><strong>Sử dụng finally hoặc try-with-resources:</strong> Để giải phóng tài nguyên</li>
+                            <li><strong>Không catch Exception nếu không cần:</strong> Tránh ẩn lỗi</li>
+                            <li><strong>Tạo custom exception:</strong> Cho các tình huống business logic đặc thù</li>
+                            <li><strong>Log exceptions:</strong> Để dễ debug sau này</li>
+                            <li><strong>Throw early, catch late:</strong> Throw ngay khi phát hiện lỗi, catch ở nơi có thể xử lý</li>
+                            <li><strong>Không dùng exceptions cho flow control:</strong> Exceptions cho exceptional cases, không phải logic thường</li>
+                        </ul>
+
+                        <h3>Bad Practice ❌</h3>
+                        <pre><code>// Tránh làm như này
+try {
+    // code
+} catch (Exception e) {
+    // Bỏ trống - rất nguy hiểm!
+}
+
+// Catch quá rộng
+try {
+    // code
+} catch (Exception e) {
+    e.printStackTrace(); // Chỉ in ra, không xử lý
+}</code></pre>
+
+                        <h3>Good Practice ✅</h3>
+                        <pre><code>import java.util.logging.Logger;
+
+public class BestPractice {
+    private static final Logger logger = Logger.getLogger(BestPractice.class.getName());
+    
+    public void processData(String data) {
+        try {
+            // Xử lý data
+            if (data == null || data.isEmpty()) {
+                throw new IllegalArgumentException("Data cannot be null or empty");
+            }
+            
+            // Process...
+            
+        } catch (IllegalArgumentException e) {
+            logger.warning("Invalid data: " + e.getMessage());
+            throw e; // Re-throw để caller biết
+            
+        } catch (Exception e) {
+            logger.severe("Unexpected error: " + e.getMessage());
+            // Convert sang RuntimeException nếu cần
+            throw new RuntimeException("Failed to process data", e);
+        }
+    }
+}</code></pre>
+
+                        <h3>Chaining Exceptions</h3>
+                        <pre><code>try {
+    // Some code
+} catch (IOException e) {
+    // Wrap exception để giữ thông tin gốc
+    throw new RuntimeException("Failed to process file", e);
+}</code></pre>
+                    </section>
+
+                    <div class="post-navigation">
+                        <a href="post-3.html" class="nav-button"><i class="fas fa-arrow-left"></i> Bài trước</a>
+                        <a href="blog.html" class="nav-button"><i class="fas fa-th"></i> Tất cả bài viết</a>
+                        <a href="post-5.html" class="nav-button">Bài tiếp theo <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+  <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; Đào Thanh Duy - IT</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

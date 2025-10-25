@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 9: Giới Thiệu Về PHP - TD Blog</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo"><h2>TD Blog</h2></div>
+            <ul class="nav-menu">
+                <li><a href="index.html"><i class="fas fa-home"></i> Trang Chủ</a></li>
+                <li><a href="blog.html"><i class="fas fa-blog"></i> Bài viết</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> Liên hệ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <article class="post-detail">
+        <div class="container">
+            <div class="post-detail-header">
+                <a href="blog.html" class="back-link"><i class="fas fa-arrow-left"></i> Quay lại</a>
+                <div class="post-meta">
+                    <span class="post-number-large">Bài 9</span>
+                    <span class="post-category php"><i class="fab fa-php"></i> PHP</span>
+                </div>
+                <h1 class="post-detail-title">Giới Thiệu Về PHP - Ngôn Ngữ Web Server-Side</h1>
+            </div>
+
+            <div class="post-layout">
+                <aside class="table-of-contents">
+                    <h3><i class="fas fa-list"></i> Mục Lục</h3>
+                    <nav class="toc-nav">
+                        <a href="#section-1" class="toc-link">1. PHP là gì?</a>
+                        <a href="#section-2" class="toc-link">2. Tại sao học PHP?</a>
+                        <a href="#section-3" class="toc-link">3. Lịch sử PHP</a>
+                        <a href="#section-4" class="toc-link">4. Cài đặt môi trường</a>
+                        <a href="#section-5" class="toc-link">5. Cú pháp cơ bản</a>
+                        <a href="#section-6" class="toc-link">6. Ứng dụng PHP</a>
+                    </nav>
+                </aside>
+
+                <div class="post-main-content">
+                    <section id="section-1" class="content-section">
+                        <h2><span class="section-number">1</span> PHP là gì?</h2>
+                        <p>
+                            <strong>PHP (Hypertext Preprocessor)</strong> là ngôn ngữ lập trình server-side mã nguồn mở, 
+                            được thiết kế đặc biệt cho web development. PHP code được thực thi trên server và trả về 
+                            kết quả HTML cho browser.
+                        </p>
+                        <h3>Đặc điểm chính của PHP</h3>
+                        <ul>
+                            <li><strong>Server-side:</strong> Code chạy trên server, không phải client</li>
+                            <li><strong>Open Source:</strong> Miễn phí và có cộng đồng lớn</li>
+                            <li><strong>Cross-platform:</strong> Chạy trên Windows, Linux, macOS</li>
+                            <li><strong>Database friendly:</strong> Tích hợp tốt với MySQL, PostgreSQL, MongoDB...</li>
+                            <li><strong>Easy to learn:</strong> Cú pháp đơn giản, dễ tiếp cận</li>
+                            <li><strong>Embedded in HTML:</strong> Có thể nhúng trực tiếp vào HTML</li>
+                        </ul>
+
+                        <h3>PHP hoạt động như thế nào?</h3>
+                        <pre><code>1. User gửi request đến server (ví dụ: truy cập trang web)
+2. Server nhận request và tìm file PHP
+3. PHP interpreter thực thi code PHP
+4. PHP tương tác với database (nếu cần)
+5. PHP tạo ra HTML output
+6. Server gửi HTML về browser
+7. Browser hiển thị nội dung cho user</code></pre>
+
+                        <h3>File PHP đầu tiên</h3>
+                        <pre><code>&lt;?php
+// File: hello.php
+echo "Hello, World!";
+?&gt;
+
+&lt;!-- Nhúng PHP trong HTML --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;My PHP Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;&lt;?php echo "Welcome to PHP!"; ?&gt;&lt;/h1&gt;
+    &lt;p&gt;Current time: &lt;?php echo date('Y-m-d H:i:s'); ?&gt;&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    </section>
+
+                    <section id="section-2" class="content-section">
+                        <h2><span class="section-number">2</span> Tại sao nên học PHP?</h2>
+                        
+                        <h3>Dễ học cho người mới bắt đầu</h3>
+                        <p>
+                            PHP có cú pháp đơn giản, tương tự C, Java. Không cần kiến thức sâu về lập trình 
+                            để bắt đầu tạo website động.
+                        </p>
+
+                        <h3>Phổ biến nhất cho Web Development</h3>
+                        <p>
+                            Hơn 77% websites trên Internet sử dụng PHP (theo W3Techs). WordPress, Facebook, 
+                            Wikipedia đều được xây dựng bằng PHP.
+                        </p>
+
+                        <h3>Tích hợp tốt với Databases</h3>
+                        <p>
+                            PHP có built-in support cho nhiều databases, đặc biệt là MySQL. Rất dễ để tạo 
+                            các ứng dụng CRUD (Create, Read, Update, Delete).
+                        </p>
+                        <pre><code>&lt;?php
+// Kết nối MySQL rất đơn giản
+$conn = new mysqli("localhost", "username", "password", "database");
+
+// Query dữ liệu
+$result = $conn->query("SELECT * FROM users");
+
+// Hiển thị kết quả
+while($row = $result->fetch_assoc()) {
+    echo "Name: " . $row["name"] . "&lt;br&gt;";
+}
+?&gt;</code></pre>
+
+                        <h3>Frameworks mạnh mẽ</h3>
+                        <ul>
+                            <li><strong>Laravel:</strong> Framework PHP hiện đại nhất, elegant syntax</li>
+                            <li><strong>Symfony:</strong> Enterprise-level framework</li>
+                            <li><strong>CodeIgniter:</strong> Lightweight, dễ học</li>
+                            <li><strong>Yii:</strong> High performance framework</li>
+                            <li><strong>CakePHP:</strong> Rapid development</li>
+                        </ul>
+
+                        <h3>CMS phổ biến</h3>
+                        <ul>
+                            <li><strong>WordPress:</strong> 43% websites trên thế giới</li>
+                            <li><strong>Drupal:</strong> Enterprise CMS</li>
+                            <li><strong>Joomla:</strong> Flexible CMS</li>
+                            <li><strong>Magento:</strong> E-commerce platform</li>
+                        </ul>
+
+                        <h3>Hosting rẻ và dễ tìm</h3>
+                        <p>
+                            Hầu hết các hosting providers đều hỗ trợ PHP. Giá rẻ, dễ setup, 
+                            nhiều tùy chọn từ shared hosting đến cloud servers.
+                        </p>
+
+                        <h3>Cơ hội việc làm tốt</h3>
+                        <p>
+                            Nhu cầu PHP developers vẫn rất cao, đặc biệt cho WordPress development, 
+                            Laravel development, và maintenance các hệ thống legacy.
+                        </p>
+                    </section>
+
+                    <section id="section-3" class="content-section">
+                        <h2><span class="section-number">3</span> Lịch sử PHP</h2>
+                        
+                        <h3>PHP/FI (1995)</h3>
+                        <p>
+                            PHP được tạo ra bởi <strong>Rasmus Lerdorf</strong> vào năm 1995. Ban đầu là 
+                            "Personal Home Page Tools" - một tập hợp các CGI scripts để quản lý trang web cá nhân.
+                        </p>
+
+                        <h3>PHP 3 (1998)</h3>
+                        <p>
+                            Viết lại hoàn toàn bởi Andi Gutmans và Zeev Suraski. Đổi tên thành 
+                            "PHP: Hypertext Preprocessor" (recursive acronym). Thêm extensibility và database support.
+                        </p>
+
+                        <h3>PHP 4 (2000)</h3>
+                        <p>
+                            Ra mắt Zend Engine 1.0, cải thiện performance đáng kể. Thêm sessions, output buffering.
+                        </p>
+
+                        <h3>PHP 5 (2004)</h3>
+                        <p>
+                            Bước ngoặt lớn với Zend Engine 2.0. Thêm OOP đầy đủ (classes, interfaces, abstract classes), 
+                            exceptions, PDO (PHP Data Objects).
+                        </p>
+
+                        <h3>PHP 7 (2015)</h3>
+                        <p>
+                            Cải thiện performance gấp đôi PHP 5. Thêm type declarations, spaceship operator, 
+                            null coalescing operator.
+                        </p>
+                        <pre><code>&lt;?php
+// PHP 7 features
+function sum(int $a, int $b): int {
+    return $a + $b;
+}
+
+// Null coalescing
+$username = $_GET['user'] ?? 'Guest';
+
+// Spaceship operator
+echo 1 &lt;=&gt; 2; // -1
+?&gt;</code></pre>
+
+                        <h3>PHP 8 (2020)</h3>
+                        <p>
+                            JIT (Just-In-Time) compilation, Union types, Named arguments, Attributes, Match expression.
+                        </p>
+                        <pre><code>&lt;?php
+// PHP 8 features
+// Union types
+function foo(int|float $number) { }
+
+// Named arguments
+function greet(string $name, string $greeting = 'Hello') {
+    return "$greeting, $name!";
+}
+echo greet(name: 'Duy', greeting: 'Hi');
+
+// Match expression
+$result = match($status) {
+    'active' =&gt; 'User is active',
+    'inactive' =&gt; 'User is inactive',
+    default =&gt; 'Unknown status'
+};
+?&gt;</code></pre>
+                    </section>
+
+                    <section id="section-4" class="content-section">
+                        <h2><span class="section-number">4</span> Cài đặt môi trường PHP</h2>
+                        
+                        <h3>Cách 1: XAMPP (Recommend cho beginners)</h3>
+                        <p>
+                            XAMPP là package bao gồm Apache, MySQL, PHP và phpMyAdmin. 
+                            Dễ cài đặt, chạy được trên Windows, Mac, Linux.
+                        </p>
+                        <ol>
+                            <li>Download XAMPP từ <strong>apachefriends.org</strong></li>
+                            <li>Cài đặt và khởi động Apache và MySQL</li>
+                            <li>Tạo file PHP trong thư mục <strong>htdocs</strong></li>
+                            <li>Truy cập <strong>localhost/yourfile.php</strong></li>
+                        </ol>
+
+                        <h3>Cách 2: WAMP (Windows)</h3>
+                        <p>
+                            Tương tự XAMPP nhưng chỉ dành cho Windows. Interface thân thiện hơn.
+                        </p>
+
+                        <h3>Cách 3: MAMP (Mac)</h3>
+                        <p>
+                            Dành cho macOS. Dễ sử dụng với giao diện đơn giản.
+                        </p>
+
+                        <h3>Cách 4: Docker (Advanced)</h3>
+                        <pre><code># docker-compose.yml
+version: '3'
+services:
+  php:
+    image: php:8.2-apache
+    ports:
+      - "8000:80"
+    volumes:
+      - ./src:/var/www/html
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: mydb</code></pre>
+
+                        <h3>Kiểm tra cài đặt</h3>
+                        <p>Tạo file <strong>info.php</strong>:</p>
+                        <pre><code>&lt;?php
+phpinfo();
+?&gt;</code></pre>
+                        <p>Truy cập <strong>localhost/info.php</strong> để xem thông tin PHP.</p>
+
+                        <h3>Text Editor / IDE</h3>
+                        <ul>
+                            <li><strong>Visual Studio Code:</strong> Free, extensions phong phú</li>
+                            <li><strong>PHPStorm:</strong> Professional IDE (trả phí)</li>
+                            <li><strong>Sublime Text:</strong> Lightweight, nhanh</li>
+                            <li><strong>Notepad++:</strong> Simple cho Windows</li>
+                        </ul>
+                    </section>
+
+                    <section id="section-5" class="content-section">
+                        <h2><span class="section-number">5</span> Cú pháp cơ bản PHP</h2>
+                        
+                        <h3>Biến và Kiểu dữ liệu</h3>
+                        <pre><code>&lt;?php
+// Variables - bắt đầu với $
+$name = "Duy";
+$age = 20;
+$price = 99.99;
+$isStudent = true;
+
+// Kiểu dữ liệu
+$string = "Hello";           // String
+$integer = 42;               // Integer
+$float = 3.14;              // Float
+$boolean = true;            // Boolean
+$array = [1, 2, 3];        // Array
+$null = null;              // NULL
+
+// Constants
+define("SITE_NAME", "TD Blog");
+const VERSION = "1.0";
+
+// Hiển thị biến
+echo $name;
+print $age;
+var_dump($price);  // Hiển thị type và value
+?&gt;</code></pre>
+
+                        <h3>Toán tử</h3>
+                        <pre><code>&lt;?php
+// Arithmetic
+$sum = 5 + 3;
+$diff = 5 - 3;
+$product = 5 * 3;
+$quotient = 5 / 3;
+$remainder = 5 % 3;
+$power = 5 ** 3;
+
+// Comparison
+$equal = (5 == "5");        // true (loose)
+$identical = (5 === "5");   // false (strict)
+$notEqual = (5 != 6);
+$greater = (5 > 3);
+
+// Logical
+$and = (true && false);
+$or = (true || false);
+$not = !true;
+
+// String concatenation
+$fullName = $firstName . " " . $lastName;
+?&gt;</code></pre>
+
+                        <h3>Cấu trúc điều khiển</h3>
+                        <pre><code>&lt;?php
+// If-else
+if ($age >= 18) {
+    echo "Adult";
+} elseif ($age >= 13) {
+    echo "Teenager";
+} else {
+    echo "Child";
+}
+
+// Switch
+switch ($day) {
+    case "Monday":
+        echo "Start of week";
+        break;
+    case "Friday":
+        echo "TGIF!";
+        break;
+    default:
+        echo "Regular day";
+}
+
+// Ternary
+$status = ($age >= 18) ? "Adult" : "Minor";
+?&gt;</code></pre>
+
+                        <h3>Vòng lặp</h3>
+                        <pre><code>&lt;?php
+// For loop
+for ($i = 0; $i < 5; $i++) {
+    echo $i . " ";
+}
+
+// While loop
+$count = 0;
+while ($count < 5) {
+    echo $count++;
+}
+
+// Foreach (cho arrays)
+$colors = ["red", "green", "blue"];
+foreach ($colors as $color) {
+    echo $color . " ";
+}
+
+// Foreach với key-value
+$person = ["name" => "Duy", "age" => 20];
+foreach ($person as $key => $value) {
+    echo "$key: $value\n";
+}
+?&gt;</code></pre>
+
+                        <h3>Functions</h3>
+                        <pre><code>&lt;?php
+// Khai báo function
+function greet($name) {
+    return "Hello, $name!";
+}
+
+// Function với default parameter
+function greetWithTitle($name, $title = "Mr.") {
+    return "Hello, $title $name!";
+}
+
+// Function với type declarations
+function sum(int $a, int $b): int {
+    return $a + $b;
+}
+
+// Variable functions
+$func = 'greet';
+echo $func('Duy');  // Hello, Duy!
+
+// Anonymous function
+$multiply = function($x, $y) {
+    return $x * $y;
+};
+echo $multiply(3, 4);
+?&gt;</code></pre>
+
+                        <h3>Arrays</h3>
+                        <pre><code>&lt;?php
+// Indexed array
+$fruits = ["Apple", "Banana", "Orange"];
+echo $fruits[0];  // Apple
+
+// Associative array
+$person = [
+    "name" => "Duy",
+    "age" => 20,
+    "city" => "HCM"
+];
+echo $person["name"];
+
+// Multidimensional array
+$students = [
+    ["name" => "Duy", "grade" => "A"],
+    ["name" => "An", "grade" => "B"]
+];
+
+// Array functions
+$numbers = [1, 2, 3, 4, 5];
+echo count($numbers);          // 5
+array_push($numbers, 6);       // Add element
+$last = array_pop($numbers);   // Remove last
+$sorted = sort($numbers);      // Sort array
+?&gt;</code></pre>
+                    </section>
+
+                    <section id="section-6" class="content-section">
+                        <h2><span class="section-number">6</span> Ứng dụng của PHP</h2>
+                        
+                        <h3>Web Applications</h3>
+                        <p>
+                            PHP là backbone của hàng triệu websites và web applications. 
+                            Từ blogs đơn giản đến enterprise applications phức tạp.
+                        </p>
+                        <ul>
+                            <li>Facebook - mạng xã hội lớn nhất thế giới</li>
+                            <li>Wikipedia - bách khoa toàn thư trực tuyến</li>
+                            <li>WordPress - 43% websites sử dụng</li>
+                            <li>Slack - công cụ giao tiếp nhóm</li>
+                        </ul>
+
+                        <h3>Content Management Systems (CMS)</h3>
+                        <p>Quản lý nội dung website dễ dàng:</p>
+                        <ul>
+                            <li>WordPress - Blogs, business websites</li>
+                            <li>Drupal - Government, education sites</li>
+                            <li>Joomla - Community portals</li>
+                        </ul>
+
+                        <h3>E-commerce Platforms</h3>
+                        <ul>
+                            <li>Magento - Enterprise e-commerce</li>
+                            <li>WooCommerce - WordPress plugin</li>
+                            <li>PrestaShop - Online stores</li>
+                            <li>OpenCart - Simple shopping carts</li>
+                        </ul>
+
+                        <h3>RESTful APIs</h3>
+                        <p>Tạo APIs cho mobile apps và single-page applications:</p>
+                        <pre><code>&lt;?php
+// Simple REST API endpoint
+header('Content-Type: application/json');
+
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    $users = [
+        ['id' => 1, 'name' => 'Duy'],
+        ['id' => 2, 'name' => 'An']
+    ];
+    echo json_encode($users);
+}
+?&gt;</code></pre>
+
+                        <h3>Form Handling</h3>
+                        <pre><code>&lt;?php
+// Process form submission
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    
+    // Validate
+    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        // Save to database
+        echo "Form submitted successfully!";
+    }
+}
+?&gt;</code></pre>
+
+                        <h3>File Operations</h3>
+                        <pre><code>&lt;?php
+// Read file
+$content = file_get_contents('data.txt');
+
+// Write file
+file_put_contents('output.txt', 'Hello World');
+
+// Upload file
+if (isset($_FILES['file'])) {
+    $file = $_FILES['file'];
+    move_uploaded_file($file['tmp_name'], 'uploads/' . $file['name']);
+}
+?&gt;</code></pre>
+
+                        <h3>Session và Authentication</h3>
+                        <pre><code>&lt;?php
+// Start session
+session_start();
+
+// Login
+if ($username === 'admin' && $password === 'pass') {
+    $_SESSION['user_id'] = 1;
+    $_SESSION['username'] = $username;
+}
+
+// Check if logged in
+if (isset($_SESSION['user_id'])) {
+    echo "Welcome, " . $_SESSION['username'];
+}
+
+// Logout
+session_destroy();
+?&gt;</code></pre>
+                    </section>
+
+                    <div class="post-navigation">
+                        <a href="post-8.html" class="nav-button"><i class="fas fa-arrow-left"></i> Bài trước</a>
+                        <a href="blog.html" class="nav-button"><i class="fas fa-th"></i> Tất cả bài viết</a>
+                        <a href="post-10.html" class="nav-button">Bài tiếp theo <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; Đào Thanh Duy - IT</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

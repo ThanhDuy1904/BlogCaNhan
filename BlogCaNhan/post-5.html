@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 5: Giới Thiệu Về JavaScript - TD Blog</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo"><h2>TD Blog</h2></div>
+            <ul class="nav-menu">
+                <li><a href="index.html"><i class="fas fa-home"></i> Trang Chủ</a></li>
+                <li><a href="blog.html"><i class="fas fa-blog"></i> Bài viết</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> Liên hệ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <article class="post-detail">
+        <div class="container">
+            <div class="post-detail-header">
+                <a href="blog.html" class="back-link"><i class="fas fa-arrow-left"></i> Quay lại</a>
+                <div class="post-meta">
+                    <span class="post-number-large">Bài 5</span>
+                    <span class="post-category javascript"><i class="fab fa-js"></i> JavaScript</span>
+                </div>
+                <h1 class="post-detail-title">Giới Thiệu Về JavaScript - Ngôn Ngữ Web Động</h1>
+            </div>
+
+            <div class="post-layout">
+                <aside class="table-of-contents">
+                    <h3><i class="fas fa-list"></i> Mục Lục</h3>
+                    <nav class="toc-nav">
+                        <a href="#section-1" class="toc-link">1.JavaScript là gì?</a>
+                        <a href="#section-2" class="toc-link">2.Tại sao học JavaScript?</a>
+                        <a href="#section-3" class="toc-link">3.Lịch sử JavaScript</a>
+                        <a href="#section-4" class="toc-link">4.Các phiên bản</a>
+                        <a href="#section-5" class="toc-link">5.Ứng dụng JavaScript</a>
+                        <a href="#section-6" class="toc-link">6.Cách bắt đầu</a>
+                    </nav>
+                </aside>
+
+                <div class="post-main-content">
+                    <section id="section-1" class="content-section">
+                        <h2><span class="section-number">1</span> JavaScript là gì?</h2>
+                        <p>
+                            JavaScript là một ngôn ngữ lập trình động, high-level, được sử dụng chủ yếu để tạo các trang web 
+                            tương tác và động. Ban đầu chỉ chạy trên browser (client-side), nhưng với sự ra đời của Node.js, 
+                            JavaScript giờ đây có thể chạy ở mọi nơi (server-side, mobile, desktop, IoT...).
+                        </p>
+                        <h3>Đặc điểm chính của JavaScript</h3>
+                        <ul>
+                            <li><strong>Interpreted Language:</strong> Code được thực thi trực tiếp, không cần compile</li>
+                            <li><strong>Dynamically Typed:</strong> Không cần khai báo kiểu dữ liệu</li>
+                            <li><strong>First-class Functions:</strong> Functions là objects, có thể gán vào biến</li>
+                            <li><strong>Prototype-based OOP:</strong> Kế thừa thông qua prototypes</li>
+                            <li><strong>Event-driven:</strong> Phản hồi các events từ người dùng</li>
+                            <li><strong>Single-threaded:</strong> Một luồng thực thi nhưng có async capabilities</li>
+                        </ul>
+                        <h3>JavaScript vs Java</h3>
+                        <p>Mặc dù tên gọi giống nhau, JavaScript và Java là hai ngôn ngữ hoàn toàn khác biệt!</p>
+                        <table>
+                            <tr>
+                                <th>JavaScript</th>
+                                <th>Java</th>
+                            </tr>
+                            <tr>
+                                <td>Interpreted</td>
+                                <td>Compiled</td>
+                            </tr>
+                            <tr>
+                                <td>Dynamic typing</td>
+                                <td>Static typing</td>
+                            </tr>
+                            <tr>
+                                <td>Chạy trên browser/Node.js</td>
+                                <td>Chạy trên JVM</td>
+                            </tr>
+                            <tr>
+                                <td>Prototype-based OOP</td>
+                                <td>Class-based OOP</td>
+                            </tr>
+                        </table>
+                    </section>
+
+                    <section id="section-2" class="content-section">
+                        <h2><span class="section-number">2</span> Tại sao nên học JavaScript?</h2>
+                        
+                        <h3>Chạy trên mọi browser</h3>
+                        <p>
+                            JavaScript được hỗ trợ native bởi tất cả các trình duyệt hiện đại. Không cần cài đặt gì thêm, 
+                            chỉ cần mở browser và bắt đầu code!
+                        </p>
+
+                        <h3>Dễ học cho người mới bắt đầu</h3>
+                        <p>
+                            Cú pháp đơn giản, không cần setup phức tạp. Bạn có thể thấy kết quả ngay lập tức 
+                            trong browser's console.
+                        </p>
+                        <pre><code>// Đơn giản thế này thôi!
+console.log("Hello, JavaScript!");
+
+// Tạo biến không cần khai báo kiểu
+let name = "Duy";
+let age = 20;
+
+// Function đơn giản
+function greet(name) {
+    return "Hello, " + name + "!";
+}
+
+console.log(greet("World")); // Hello, World!</code></pre>
+
+                        <h3>Đa năng - Full-stack Development</h3>
+                        <ul>
+                            <li><strong>Frontend:</strong> React, Vue, Angular - Tạo UI tương tác</li>
+                            <li><strong>Backend:</strong> Node.js, Express.js - Xây dựng API, server</li>
+                            <li><strong>Mobile:</strong> React Native, Ionic - Phát triển app iOS/Android</li>
+                            <li><strong>Desktop:</strong> Electron - Tạo ứng dụng desktop (VS Code, Discord...)</li>
+                            <li><strong>Game Development:</strong> Phaser, Three.js</li>
+                            <li><strong>Machine Learning:</strong> TensorFlow.js</li>
+                        </ul>
+
+                        <h3>Ecosystem phong phú</h3>
+                        <p>
+                            NPM (Node Package Manager) có hàng triệu packages miễn phí. Bất cứ tính năng nào bạn cần, 
+                            chắc chắn đã có ai đó làm rồi!
+                        </p>
+
+                        <h3>Cộng đồng lớn nhất</h3>
+                        <p>
+                            JavaScript là ngôn ngữ phổ biến nhất theo GitHub, Stack Overflow. Dễ dàng tìm tài liệu, 
+                            tutorials, và sự hỗ trợ.
+                        </p>
+
+                        <h3>Cơ hội việc làm cao</h3>
+                        <p>
+                            Nhu cầu JavaScript developers luôn cao. Từ startups đến các tập đoàn lớn đều cần 
+                            JavaScript cho web và mobile apps.
+                        </p>
+                    </section>
+
+                    <section id="section-3" class="content-section">
+                        <h2><span class="section-number">3</span> Lịch sử JavaScript</h2>
+                        
+                        <h3>Nguồn gốc (1995)</h3>
+                        <p>
+                            JavaScript được tạo ra bởi <strong>Brendan Eich</strong> tại Netscape chỉ trong 10 ngày! 
+                            Ban đầu có tên <strong>Mocha</strong>, sau đó là <strong>LiveScript</strong>, và cuối cùng 
+                            đổi thành <strong>JavaScript</strong> để tận dụng độ phổ biến của Java (mặc dù hai ngôn ngữ 
+                            không liên quan gì nhau).
+                        </p>
+
+                        <h3>Chiến tranh browsers (1996-2000)</h3>
+                        <p>
+                            Netscape và Microsoft cạnh tranh khốc liệt. Microsoft tạo ra JScript (phiên bản riêng của JavaScript) 
+                            cho Internet Explorer. Điều này dẫn đến sự không tương thích giữa các browsers.
+                        </p>
+
+                        <h3>Chuẩn hóa - ECMAScript (1997)</h3>
+                        <p>
+                            ECMA International tạo ra chuẩn ECMAScript để thống nhất JavaScript. JavaScript là implementation 
+                            của ECMAScript standard.
+                        </p>
+
+                        <h3>AJAX và Web 2.0 (2005)</h3>
+                        <p>
+                            Google Maps và Gmail cho thấy sức mạnh của AJAX (Asynchronous JavaScript and XML), 
+                            mở ra kỷ nguyên web applications tương tác.
+                        </p>
+
+                        <h3>Node.js (2009)</h3>
+                        <p>
+                            Ryan Dahl tạo ra Node.js, cho phép JavaScript chạy trên server. Đây là bước ngoặt lớn, 
+                            biến JavaScript từ ngôn ngữ chỉ chạy trên browser thành full-stack language.
+                        </p>
+
+                        <h3>Frameworks Era (2010s)</h3>
+                        <p>
+                            Sự ra đời của Angular (2010), React (2013), Vue (2014) đã thay đổi cách phát triển web apps.
+                        </p>
+                    </section>
+
+                    <section id="section-4" class="content-section">
+                        <h2><span class="section-number">4</span> Các phiên bản ECMAScript</h2>
+                        
+                        <h3>ES5 (2009)</h3>
+                        <p>Phiên bản ổn định, được hỗ trợ rộng rãi. Thêm strict mode, JSON support, array methods.</p>
+                        <pre><code>// ES5 features
+"use strict";
+
+var numbers = [1, 2, 3, 4, 5];
+
+// Array methods
+var doubled = numbers.map(function(n) {
+    return n * 2;
+});
+
+var evens = numbers.filter(function(n) {
+    return n % 2 === 0;
+});</code></pre>
+
+                        <h3>ES6/ES2015 - Bước ngoặt lớn</h3>
+                        <p>Phiên bản quan trọng nhất với nhiều tính năng mới:</p>
+                        <ul>
+                            <li><strong>let và const:</strong> Block-scoped variables</li>
+                            <li><strong>Arrow functions:</strong> Cú pháp ngắn gọn cho functions</li>
+                            <li><strong>Classes:</strong> Syntactic sugar cho prototype-based OOP</li>
+                            <li><strong>Template literals:</strong> String interpolation</li>
+                            <li><strong>Destructuring:</strong> Trích xuất dữ liệu từ arrays/objects</li>
+                            <li><strong>Promises:</strong> Xử lý async tốt hơn callbacks</li>
+                            <li><strong>Modules:</strong> import/export</li>
+                        </ul>
+                        <pre><code>// ES6 features
+const numbers = [1, 2, 3, 4, 5];
+
+// Arrow function
+const doubled = numbers.map(n => n * 2);
+
+// Template literal
+const name = "Duy";
+const greeting = `Hello, ${name}!`;
+
+// Destructuring
+const person = { name: "Duy", age: 20 };
+const { name, age } = person;
+
+// Classes
+class Person {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    
+    greet() {
+        return `Hello, I'm ${this.name}`;
+    }
+}</code></pre>
+
+                        <h3>ES2016 - ES2023</h3>
+                        <p>Mỗi năm có một phiên bản mới với các tính năng cải tiến:</p>
+                        <ul>
+                            <li><strong>ES2016:</strong> Array.includes(), Exponentiation operator (**)</li>
+                            <li><strong>ES2017:</strong> async/await, Object.entries(), Object.values()</li>
+                            <li><strong>ES2018:</strong> Rest/Spread properties, Async iteration</li>
+                            <li><strong>ES2020:</strong> Optional chaining (?.), Nullish coalescing (??)</li>
+                            <li><strong>ES2021:</strong> String.replaceAll(), Promise.any()</li>
+                        </ul>
+                    </section>
+
+                    <section id="section-5" class="content-section">
+                        <h2><span class="section-number">5</span> Ứng dụng của JavaScript</h2>
+                        
+                        <h3>Frontend Web Development</h3>
+                        <p>Tạo giao diện người dùng tương tác, dynamic websites:</p>
+                        <ul>
+                            <li><strong>React:</strong> Library phổ biến nhất (Facebook, Instagram, Netflix)</li>
+                            <li><strong>Vue:</strong> Progressive framework, dễ học (Alibaba, Xiaomi)</li>
+                            <li><strong>Angular:</strong> Full framework từ Google</li>
+                        </ul>
+
+                        <h3>Backend Development</h3>
+                        <p>Xây dựng server, REST APIs, real-time applications:</p>
+                        <ul>
+                            <li><strong>Node.js:</strong> JavaScript runtime cho server</li>
+                            <li><strong>Express.js:</strong> Web framework phổ biến</li>
+                            <li><strong>NestJS:</strong> Framework enterprise với TypeScript</li>
+                        </ul>
+
+                        <h3>Mobile App Development</h3>
+                        <ul>
+                            <li><strong>React Native:</strong> Phát triển iOS/Android (Facebook, Instagram)</li>
+                            <li><strong>Ionic:</strong> Hybrid mobile apps</li>
+                            <li><strong>NativeScript:</strong> Native mobile apps</li>
+                        </ul>
+
+                        <h3>Desktop Applications</h3>
+                        <ul>
+                            <li><strong>Electron:</strong> VS Code, Discord, Slack, Skype</li>
+                            <li><strong>NW.js:</strong> Tương tự Electron</li>
+                        </ul>
+
+                        <h3>Game Development</h3>
+                        <ul>
+                            <li><strong>Phaser:</strong> 2D game framework</li>
+                            <li><strong>Three.js:</strong> 3D graphics với WebGL</li>
+                            <li><strong>Babylon.js:</strong> 3D game engine</li>
+                        </ul>
+
+                        <h3>Data Visualization</h3>
+                        <ul>
+                            <li><strong>D3.js:</strong> Data-driven documents</li>
+                            <li><strong>Chart.js:</strong> Simple charts</li>
+                            <li><strong>Plotly:</strong> Scientific charts</li>
+                        </ul>
+                    </section>
+
+                    <section id="section-6" class="content-section">
+                        <h2><span class="section-number">6</span> Cách bắt đầu học JavaScript</h2>
+                        
+                        <h3>Bước 1: Học HTML và CSS trước (nếu chưa biết)</h3>
+                        <p>
+                            JavaScript thường được sử dụng cùng HTML/CSS để tạo websites. 
+                            Nên học HTML/CSS cơ bản trước khi bắt đầu JavaScript.
+                        </p>
+
+                        <h3>Bước 2: Setup môi trường</h3>
+                        <p>Bạn chỉ cần:</p>
+                        <ul>
+                            <li><strong>Browser:</strong> Chrome, Firefox, Edge (đều có Developer Tools)</li>
+                            <li><strong>Text Editor:</strong> VS Code (recommend), Sublime Text, Atom</li>
+                        </ul>
+                        <p>Không cần cài đặt gì thêm! Mở browser console (F12) và bắt đầu code:</p>
+                        <pre><code>// Trong browser console, gõ:
+console.log("Hello, JavaScript!");
+
+// Tạo biến
+let message = "I'm learning JavaScript!";
+console.log(message);
+
+// Tính toán
+let sum = 5 + 10;
+console.log("5 + 10 =", sum);</code></pre>
+
+                        <h3>Bước 3: Nắm vững cú pháp cơ bản</h3>
+                        <ul>
+                            <li>Variables: let, const, var</li>
+                            <li>Data types: String, Number, Boolean, Array, Object</li>
+                            <li>Operators: +, -, *, /, %, ==, ===, !=, !==</li>
+                            <li>Control flow: if-else, switch, loops</li>
+                            <li>Functions: declaration, expression, arrow functions</li>
+                        </ul>
+
+                        <h3>Bước 4: Học DOM Manipulation</h3>
+                        <p>Cách JavaScript tương tác với HTML:</p>
+                        <pre><code>// Select elements
+const button = document.querySelector('#myButton');
+const heading = document.querySelector('h1');
+
+// Change content
+heading.textContent = 'New Heading';
+
+// Add event listener
+button.addEventListener('click', function() {
+    alert('Button clicked!');
+});</code></pre>
+
+                        <h3>Bước 5: Thực hành với projects nhỏ</h3>
+                        <ul>
+                            <li>Calculator</li>
+                            <li>Todo List</li>
+                            <li>Quiz App</li>
+                            <li>Weather App (sử dụng API)</li>
+                        </ul>
+
+                        <h3>Bước 6: Học ES6+ features</h3>
+                        <p>Arrow functions, destructuring, spread operator, async/await...</p>
+
+                        <h3>Bước 7: Học một framework</h3>
+                        <p>Sau khi vững JavaScript thuần (vanilla JS), học React, Vue hoặc Angular.</p>
+
+                        <h3>Tài nguyên học tập</h3>
+                        <ul>
+                            <li><strong>MDN Web Docs:</strong> Tài liệu chính thống</li>
+                            <li><strong>JavaScript.info:</strong> Tutorial chi tiết</li>
+                            <li><strong>freeCodeCamp:</strong> Học miễn phí với projects</li>
+                            <li><strong>YouTube:</strong> Nhiều channels hay (Traversy Media, The Net Ninja...)</li>
+                        </ul>
+                    </section>
+
+                    <div class="post-navigation">
+                        <a href="post-4.html" class="nav-button"><i class="fas fa-arrow-left"></i> Bài trước</a>
+                        <a href="blog.html" class="nav-button"><i class="fas fa-th"></i> Tất cả bài viết</a>
+                        <a href="post-6.html" class="nav-button">Bài tiếp theo <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+  <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; Đào Thanh Duy - IT</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

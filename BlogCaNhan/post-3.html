@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 3: Collections Framework - TD Blog</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo"><h2>TD Blog</h2></div>
+            <ul class="nav-menu">
+                <li><a href="index.html"><i class="fas fa-home"></i> Trang Chủ</a></li>
+                <li><a href="blog.html"><i class="fas fa-blog"></i> Bài viết</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> Liên hệ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <article class="post-detail">
+        <div class="container">
+            <div class="post-detail-header">
+                <a href="blog.html" class="back-link"><i class="fas fa-arrow-left"></i> Quay lại</a>
+                <div class="post-meta">
+                    <span class="post-number-large">Bài 3</span>
+                    <span class="post-category java"><i class="fab fa-java"></i> Java</span>
+                </div>
+                <h1 class="post-detail-title">Collections Framework - Quản Lý Dữ Liệu Hiệu Quả</h1>
+            </div>
+
+            <div class="post-layout">
+                <aside class="table-of-contents">
+                    <h3><i class="fas fa-list"></i> Mục Lục</h3>
+                    <nav class="toc-nav">
+                        <a href="#section-1" class="toc-link">1.Collections Framework là gì?</a>
+                        <a href="#section-2" class="toc-link">2.List Interface</a>
+                        <a href="#section-3" class="toc-link">3.Set Interface</a>
+                        <a href="#section-4" class="toc-link">4.Map Interface</a>
+                        <a href="#section-5" class="toc-link">5.Queue Interface</a>
+                        <a href="#section-6" class="toc-link">6.So sánh và lựa chọn</a>
+                    </nav>
+                </aside>
+
+                <div class="post-main-content">
+                    <section id="section-1" class="content-section">
+                        <h2><span class="section-number">1</span> Collections Framework là gì?</h2>
+                        <p>
+                            Collections Framework là một kiến trúc thống nhất để biểu diễn và thao tác với các tập hợp đối tượng. 
+                            Nó cung cấp các interface (List, Set, Map, Queue) và các class triển khai (ArrayList, HashSet, HashMap...) 
+                            để lưu trữ và xử lý dữ liệu một cách hiệu quả.
+                        </p>
+                        <h3>Lợi ích của Collections Framework</h3>
+                        <ul>
+                            <li><strong>Giảm nỗ lực lập trình:</strong> Cung cấp sẵn các cấu trúc dữ liệu và algorithms</li>
+                            <li><strong>Tăng tốc độ:</strong> Các implementation đã được tối ưu hóa</li>
+                            <li><strong>Tái sử dụng:</strong> Các interface và class có thể sử dụng lại</li>
+                            <li><strong>Tính nhất quán:</strong> Tất cả collections có API tương tự nhau</li>
+                        </ul>
+                    </section>
+
+                    <section id="section-2" class="content-section">
+                        <h2><span class="section-number">2</span> List Interface</h2>
+                        <p>
+                            List là ordered collection (sequence), cho phép duplicate elements. 
+                            Bạn có thể truy cập elements theo index.
+                        </p>
+                        <h3>ArrayList - Mảng động</h3>
+                        <pre><code>import java.util.ArrayList;
+import java.util.List;
+
+public class ArrayListExample {
+    public static void main(String[] args) {
+        // Khởi tạo ArrayList
+        List<String> fruits = new ArrayList<>();
+        
+        // Thêm phần tử
+        fruits.add("Apple");
+        fruits.add("Banana");
+        fruits.add("Orange");
+        fruits.add("Apple"); // Cho phép duplicate
+        
+        // Truy cập theo index
+        System.out.println("First: " + fruits.get(0));
+        
+        // Duyệt qua List
+        for (String fruit : fruits) {
+            System.out.println(fruit);
+        }
+        
+        // Kiểm tra tồn tại
+        if (fruits.contains("Banana")) {
+            System.out.println("Found Banana!");
+        }
+        
+        // Xóa phần tử
+        fruits.remove("Apple"); // Xóa phần tử đầu tiên
+        fruits.remove(0); // Xóa theo index
+        
+        // Kích thước
+        System.out.println("Size: " + fruits.size());
+    }
+}</code></pre>
+                        <h3>LinkedList - Danh sách liên kết</h3>
+                        <pre><code>import java.util.LinkedList;
+
+public class LinkedListExample {
+    public static void main(String[] args) {
+        LinkedList<Integer> numbers = new LinkedList<>();
+        
+        // Thêm ở đầu và cuối
+        numbers.addFirst(10);
+        numbers.addLast(20);
+        numbers.add(30); // Thêm vào cuối
+        
+        // Lấy phần tử đầu và cuối
+        System.out.println("First: " + numbers.getFirst());
+        System.out.println("Last: " + numbers.getLast());
+        
+        // Xóa đầu và cuối
+        numbers.removeFirst();
+        numbers.removeLast();
+    }
+}</code></pre>
+                        <h3>Khi nào dùng ArrayList vs LinkedList?</h3>
+                        <ul>
+                            <li><strong>ArrayList:</strong> Dùng khi cần truy cập ngẫu nhiên nhiều (get/set theo index)</li>
+                            <li><strong>LinkedList:</strong> Dùng khi thêm/xóa phần tử ở đầu/cuối thường xuyên</li>
+                        </ul>
+                    </section>
+
+                    <section id="section-3" class="content-section">
+                        <h2><span class="section-number">3</span> Set Interface</h2>
+                        <p>
+                            Set là collection không cho phép duplicate elements. 
+                            Mỗi phần tử chỉ xuất hiện một lần.
+                        </p>
+                        <h3>HashSet - Không thứ tự</h3>
+                        <pre><code>import java.util.HashSet;
+import java.util.Set;
+
+public class HashSetExample {
+    public static void main(String[] args) {
+        Set<String> cities = new HashSet<>();
+        
+        // Thêm phần tử
+        cities.add("Hanoi");
+        cities.add("HCMC");
+        cities.add("Danang");
+        cities.add("Hanoi"); // Không thêm được - duplicate
+        
+        System.out.println("Size: " + cities.size()); // 3
+        
+        // Kiểm tra
+        if (cities.contains("HCMC")) {
+            System.out.println("Found HCMC");
+        }
+        
+        // Duyệt - không đảm bảo thứ tự
+        for (String city : cities) {
+            System.out.println(city);
+        }
+    }
+}</code></pre>
+                        <h3>LinkedHashSet - Duy trì thứ tự chèn</h3>
+                        <pre><code>import java.util.LinkedHashSet;
+
+public class LinkedHashSetExample {
+    public static void main(String[] args) {
+        LinkedHashSet<Integer> numbers = new LinkedHashSet<>();
+        
+        numbers.add(30);
+        numbers.add(10);
+        numbers.add(20);
+        numbers.add(10); // Không thêm được
+        
+        // Duyệt - theo thứ tự chèn
+        for (Integer num : numbers) {
+            System.out.println(num); // 30, 10, 20
+        }
+    }
+}</code></pre>
+                        <h3>TreeSet - Tự động sắp xếp</h3>
+                        <pre><code>import java.util.TreeSet;
+
+public class TreeSetExample {
+    public static void main(String[] args) {
+        TreeSet<Integer> numbers = new TreeSet<>();
+        
+        numbers.add(30);
+        numbers.add(10);
+        numbers.add(20);
+        numbers.add(40);
+        
+        // Tự động sắp xếp tăng dần
+        for (Integer num : numbers) {
+            System.out.println(num); // 10, 20, 30, 40
+        }
+        
+        // Các methods đặc biệt
+        System.out.println("First: " + numbers.first());
+        System.out.println("Last: " + numbers.last());
+        System.out.println("Higher than 25: " + numbers.higher(25));
+        System.out.println("Lower than 25: " + numbers.lower(25));
+    }
+}</code></pre>
+                    </section>
+
+                    <section id="section-4" class="content-section">
+                        <h2><span class="section-number">4</span> Map Interface</h2>
+                        <p>
+                            Map lưu trữ dữ liệu theo cặp key-value. Mỗi key là duy nhất và map đến một value.
+                        </p>
+                        <h3>HashMap - Không thứ tự</h3>
+                        <pre><code>import java.util.HashMap;
+import java.util.Map;
+
+public class HashMapExample {
+    public static void main(String[] args) {
+        Map<String, Integer> ages = new HashMap<>();
+        
+        // Thêm cặp key-value
+        ages.put("Alice", 25);
+        ages.put("Bob", 30);
+        ages.put("Charlie", 28);
+        ages.put("Alice", 26); // Update value của key "Alice"
+        
+        // Lấy value theo key
+        System.out.println("Alice's age: " + ages.get("Alice"));
+        
+        // Kiểm tra key tồn tại
+        if (ages.containsKey("Bob")) {
+            System.out.println("Bob exists");
+        }
+        
+        // Kiểm tra value tồn tại
+        if (ages.containsValue(30)) {
+            System.out.println("Someone is 30");
+        }
+        
+        // Duyệt qua Map
+        for (Map.Entry<String, Integer> entry : ages.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+        }
+        
+        // Duyệt chỉ keys
+        for (String name : ages.keySet()) {
+            System.out.println(name);
+        }
+        
+        // Duyệt chỉ values
+        for (Integer age : ages.values()) {
+            System.out.println(age);
+        }
+        
+        // Xóa
+        ages.remove("Charlie");
+        
+        // getOrDefault
+        int age = ages.getOrDefault("David", 0);
+    }
+}</code></pre>
+                        <h3>LinkedHashMap - Duy trì thứ tự chèn</h3>
+                        <pre><code>import java.util.LinkedHashMap;
+
+LinkedHashMap<String, String> map = new LinkedHashMap<>();
+map.put("A", "Apple");
+map.put("B", "Banana");
+map.put("C", "Cherry");
+
+// Duyệt theo thứ tự chèn
+for (Map.Entry<String, String> entry : map.entrySet()) {
+    System.out.println(entry.getKey() + " = " + entry.getValue());
+}</code></pre>
+                        <h3>TreeMap - Tự động sắp xếp theo key</h3>
+                        <pre><code>import java.util.TreeMap;
+
+TreeMap<Integer, String> map = new TreeMap<>();
+map.put(3, "Three");
+map.put(1, "One");
+map.put(2, "Two");
+
+// Tự động sắp xếp theo key
+for (Map.Entry<Integer, String> entry : map.entrySet()) {
+    System.out.println(entry.getKey() + " = " + entry.getValue());
+}
+// Output: 1=One, 2=Two, 3=Three</code></pre>
+                    </section>
+
+                    <section id="section-5" class="content-section">
+                        <h2><span class="section-number">5</span> Queue Interface</h2>
+                        <p>
+                            Queue là collection theo nguyên tắc FIFO (First In First Out) - phần tử vào trước sẽ ra trước.
+                        </p>
+                        <pre><code>import java.util.LinkedList;
+import java.util.Queue;
+
+public class QueueExample {
+    public static void main(String[] args) {
+        Queue<String> queue = new LinkedList<>();
+        
+        // Thêm phần tử vào cuối queue
+        queue.offer("First");
+        queue.offer("Second");
+        queue.offer("Third");
+        
+        // Xem phần tử đầu tiên (không xóa)
+        System.out.println("Peek: " + queue.peek());
+        
+        // Lấy và xóa phần tử đầu tiên
+        System.out.println("Poll: " + queue.poll());
+        System.out.println("Poll: " + queue.poll());
+        
+        // Kiểm tra rỗng
+        if (!queue.isEmpty()) {
+            System.out.println("Queue not empty");
+        }
+    }
+}</code></pre>
+                        <h3>PriorityQueue - Hàng đợi ưu tiên</h3>
+                        <pre><code>import java.util.PriorityQueue;
+
+PriorityQueue<Integer> pq = new PriorityQueue<>();
+
+pq.offer(30);
+pq.offer(10);
+pq.offer(20);
+
+// Lấy theo thứ tự ưu tiên (nhỏ nhất trước)
+System.out.println(pq.poll()); // 10
+System.out.println(pq.poll()); // 20
+System.out.println(pq.poll()); // 30</code></pre>
+                    </section>
+
+                    <section id="section-6" class="content-section">
+                        <h2><span class="section-number">6</span> So sánh và lựa chọn Collection</h2>
+                        <table>
+                            <tr>
+                                <th>Collection</th>
+                                <th>Duplicate</th>
+                                <th>Ordered</th>
+                                <th>Sử dụng khi</th>
+                            </tr>
+                            <tr>
+                                <td><strong>ArrayList</strong></td>
+                                <td>Có</td>
+                                <td>Có</td>
+                                <td>Truy cập ngẫu nhiên nhiều</td>
+                            </tr>
+                            <tr>
+                                <td><strong>LinkedList</strong></td>
+                                <td>Có</td>
+                                <td>Có</td>
+                                <td>Thêm/xóa đầu cuối nhiều</td>
+                            </tr>
+                            <tr>
+                                <td><strong>HashSet</strong></td>
+                                <td>Không</td>
+                                <td>Không</td>
+                                <td>Không cần thứ tự, cần tốc độ</td>
+                            </tr>
+                            <tr>
+                                <td><strong>TreeSet</strong></td>
+                                <td>Không</td>
+                                <td>Có (sorted)</td>
+                                <td>Cần sắp xếp tự động</td>
+                            </tr>
+                            <tr>
+                                <td><strong>HashMap</strong></td>
+                                <td>Key: Không<br>Value: Có</td>
+                                <td>Không</td>
+                                <td>Lưu key-value, tốc độ cao</td>
+                            </tr>
+                        </table>
+                    </section>
+
+                    <div class="post-navigation">
+                        <a href="post-2.html" class="nav-button"><i class="fas fa-arrow-left"></i> Bài trước</a>
+                        <a href="blog.html" class="nav-button"><i class="fas fa-th"></i> Tất cả bài viết</a>
+                        <a href="post-4.html" class="nav-button">Bài tiếp theo <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+   <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; Đào Thanh Duy - IT</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 1: Giới Thiệu Về Java - TD Blog</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <h2>TD Blog</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html"><i class="fas fa-home"></i> Trang Chủ</a></li>
+                <li><a href="blog.html"><i class="fas fa-blog"></i> Bài viết</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> Liên hệ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Post Content -->
+    <article class="post-detail">
+        <div class="container">
+            <div class="post-detail-header">
+                <a href="blog.html" class="back-link"><i class="fas fa-arrow-left"></i> Quay lại</a>
+                <div class="post-meta">
+                    <span class="post-number-large">Bài 1</span>
+                    <span class="post-category java"><i class="fab fa-java"></i> Java</span>
+                </div>
+                <h1 class="post-detail-title">Giới Thiệu Về Java - Ngôn Ngữ Lập Trình Hướng Đối Tượng</h1>
+            </div>
+
+            <div class="post-layout">
+                <!-- Table of Contents -->
+                <aside class="table-of-contents">
+                    <h3><i class="fas fa-list"></i> Mục Lục</h3>
+                    <nav class="toc-nav">
+                        <a href="#section-1" class="toc-link">1. Java là gì?</a>
+                        <a href="#section-2" class="toc-link">2. Tại sao nên học Java?</a>
+                        <a href="#section-3" class="toc-link">3. Các lĩnh vực ứng dụng</a>
+                        <a href="#section-4" class="toc-link">4. Cách bắt đầu học Java</a>
+                        <a href="#section-5" class="toc-link">5. Kết luận</a>
+                    </nav>
+                </aside>
+
+                <!-- Main Content -->
+                <div class="post-main-content">
+                    <section id="section-1" class="content-section">
+                        <h2><span class="section-number">1.</span> Java là gì?</h2>
+                        <p>
+                            Java là một ngôn ngữ lập trình hướng đối tượng (OOP) được thiết kế để chạy trên nhiều nền tảng khác nhau. 
+                            Được phát triển bởi James Gosling tại Sun Microsystems vào năm 1995, Java đã trở thành một trong những 
+                            ngôn ngữ phổ biến nhất trong phát triển phần mềm hiện đại.
+                        </p>
+                        <p>
+                            Phương châm của Java là <strong>"Write Once, Run Anywhere"</strong> (Viết một lần, chạy mọi nơi), 
+                            nghĩa là code Java có thể chạy trên bất kỳ thiết bị nào có cài đặt Java Virtual Machine (JVM).
+                        </p>
+                    </section>
+
+                    <section id="section-2" class="content-section">
+                        <h2><span class="section-number">2.</span> Tại sao nên học Java?</h2>
+                        
+                        <h3>2.1. Đa nền tảng (Platform Independent)</h3>
+                        <p>
+                            Java có thể chạy trên mọi hệ điều hành nhờ Java Virtual Machine (JVM). Bạn chỉ cần viết code một lần 
+                            và có thể chạy ở mọi nơi: Windows, macOS, Linux, v.v.
+                        </p>
+
+                        <h3>2.2. OOP thuần túy</h3>
+                        <p>
+                            Java hỗ trợ đầy đủ các tính chất hướng đối tượng: Encapsulation, Inheritance, Polymorphism và Abstraction. 
+                            Điều này giúp tổ chức code tốt hơn, dễ bảo trì và mở rộng.
+                        </p>
+
+                        <h3>2.3. Cộng đồng lớn</h3>
+                        <p>
+                            Với hàng triệu developer trên toàn thế giới, bạn dễ dàng tìm thấy tài liệu, thư viện và sự hỗ trợ khi gặp vấn đề.
+                        </p>
+
+                        <h3>2.4. Bảo mật cao</h3>
+                        <p>
+                            Java có nhiều cơ chế bảo mật tích hợp sẵn như: Security Manager, Bytecode Verifier, Class Loader. 
+                            Điều này làm cho Java rất phù hợp cho các ứng dụng enterprise và tài chính.
+                        </p>
+
+                        <h3>2.5. Cơ hội việc làm</h3>
+                        <p>
+                            Nhu cầu Java developer luôn cao, đặc biệt trong các công ty lớn, ngân hàng, tập đoàn đa quốc gia 
+                            và các dự án enterprise. Mức lương cho Java developer cũng rất cạnh tranh.
+                        </p>
+                    </section>
+
+                    <section id="section-3" class="content-section">
+                        <h2><span class="section-number">3.</span> Các lĩnh vực ứng dụng Java</h2>
+                        
+                        <h3>3.1. Web Applications</h3>
+                        <p>
+                            Java được sử dụng rộng rãi trong phát triển web với các framework như Spring Boot, Spring MVC, 
+                            JSP (JavaServer Pages), và Servlets. Nhiều website lớn như Amazon, LinkedIn, eBay sử dụng Java.
+                        </p>
+
+                        <h3>3.2. Mobile Applications</h3>
+                        <p>
+                            Java là ngôn ngữ chính để phát triển ứng dụng Android. Hàng triệu ứng dụng trên Google Play Store 
+                            được viết bằng Java.
+                        </p>
+
+                        <h3>3.3. Desktop Applications</h3>
+                        <p>
+                            Sử dụng JavaFX hoặc Swing để tạo các ứng dụng desktop đa nền tảng với giao diện đồ họa phong phú.
+                        </p>
+
+                        <h3>3.4. Enterprise Applications</h3>
+                        <p>
+                            Java EE (Enterprise Edition) được thiết kế đặc biệt cho các hệ thống lớn, phức tạp với khả năng 
+                            xử lý cao và độ tin cậy tuyệt đối.
+                        </p>
+
+                        <h3>3.5. Cloud-based Applications</h3>
+                        <p>
+                            Với Spring Boot và các công nghệ microservices, Java là lựa chọn hàng đầu cho cloud computing 
+                            và các ứng dụng phân tán.
+                        </p>
+                    </section>
+
+                    <section id="section-4" class="content-section">
+                        <h2><span class="section-number">4.</span> Cách bắt đầu học Java</h2>
+                        
+                        <h3>4.1. Cài đặt JDK (Java Development Kit)</h3>
+                        <p>
+                            Bước đầu tiên là tải và cài đặt JDK từ trang chủ của Oracle hoặc sử dụng OpenJDK. 
+                            JDK bao gồm compiler (javac), JRE (Java Runtime Environment), và các công cụ phát triển khác.
+                        </p>
+
+                        <h3>4.2. Chọn IDE phù hợp</h3>
+                        <p>
+                            Các IDE phổ biến cho Java:
+                        </p>
+                        <ul>
+                            <li><strong>IntelliJ IDEA:</strong> Mạnh mẽ, nhiều tính năng, được yêu thích nhất</li>
+                            <li><strong>Eclipse:</strong> Miễn phí, open-source, phổ biến trong doanh nghiệp</li>
+                            <li><strong>NetBeans:</strong> Dễ sử dụng cho người mới bắt đầu</li>
+                            <li><strong>VS Code:</strong> Nhẹ, với extension hỗ trợ Java</li>
+                        </ul>
+
+                        <h3>4.3. Học cú pháp cơ bản</h3>
+                        <p>
+                            Bắt đầu với "Hello World", sau đó học về:
+                        </p>
+                        <ul>
+                            <li>Các kiểu dữ liệu: int, double, String, boolean...</li>
+                            <li>Biến và hằng số</li>
+                            <li>Toán tử và biểu thức</li>
+                            <li>Cấu trúc điều khiển: if-else, switch, vòng lặp</li>
+                            <li>Mảng (Array)</li>
+                        </ul>
+
+                        <h3>4.4. Nắm vững OOP</h3>
+                        <p>
+                            Hiểu sâu về 4 tính chất cơ bản của OOP và cách áp dụng trong Java. Đây là nền tảng quan trọng nhất.
+                        </p>
+
+                        <h3>4.5. Thực hành với project</h3>
+                        <p>
+                            Học lý thuyết phải đi đôi với thực hành. Bắt đầu với các project nhỏ như:
+                        </p>
+                        <ul>
+                            <li>Calculator (Máy tính)</li>
+                            <li>Student Management System (Quản lý sinh viên)</li>
+                            <li>Library Management (Quản lý thư viện)</li>
+                            <li>Todo List Application</li>
+                        </ul>
+
+                        <h3>4.6. Học Collections và Exception Handling</h3>
+                        <p>
+                            Sau khi vững OOP, tiếp tục với Collections Framework (ArrayList, HashMap...) 
+                            và cách xử lý exceptions để code ổn định hơn.
+                        </p>
+
+                        <h3>4.7. Tìm hiểu về Multithreading và I/O</h3>
+                        <p>
+                            Học cách làm việc với nhiều threads đồng thời và xử lý file, network I/O.
+                        </p>
+                    </section>
+
+                    <section id="section-5" class="content-section">
+                        <h2><span class="section-number">5.</span> Kết luận</h2>
+                        <p>
+                            Java là một ngôn ngữ mạnh mẽ, đa năng và có cơ hội nghề nghiệp rộng mở. Mặc dù có đường cong học tập 
+                            ban đầu, nhưng một khi nắm vững Java, bạn sẽ có nền tảng vững chắc để học các ngôn ngữ khác và 
+                            phát triển các ứng dụng phức tạp.
+                        </p>
+                        <p>
+                            Hãy kiên trì, thực hành nhiều và đừng ngại hỏi cộng đồng khi gặp khó khăn. Chúc bạn thành công 
+                            trên con đường trở thành Java Developer!
+                        </p>
+                    </section>
+
+                    <!-- Navigation -->
+                    <div class="post-navigation">
+                        <a href="blog.html" class="nav-button"><i class="fas fa-th"></i> Tất cả bài viết</a>
+                        <a href="post-2.html" class="nav-button">Bài tiếp theo <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; Đào Thanh Duy - IT</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Highlight active TOC link on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('.content-section');
+            const tocLinks = document.querySelectorAll('.toc-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            tocLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scroll for TOC links
+        document.querySelectorAll('.toc-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+    </script>
+</body>
+</html>

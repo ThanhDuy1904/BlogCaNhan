@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=1.0, maximum-scale=5.0">
+    <meta name="theme-color" content="#4A90E2">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Java vs JavaScript - So Sánh Chi Tiết</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <h2><i class="fas fa-code"></i> TD Blog</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html"><i class="fas fa-home"></i> <span>Trang Chủ</span></a></li>
+                <li><a href="blog.html" class="active"><i class="fas fa-blog"></i> <span>Bài viết</span></a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> <span>Liên hệ</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Post Detail -->
+    <section class="post-detail">
+        <div class="container">
+            <!-- Post Header -->
+            <div class="post-detail-header">
+                <a href="blog.html" class="back-link">
+                    <i class="fas fa-arrow-left"></i> <span>Quay lại</span>
+                </a>
+                <div class="post-meta">
+                    <span class="post-number-large">Bài 11</span>
+                    <span class="post-category compare"><i class="fas fa-code-branch"></i> So Sánh</span>
+                </div>
+                <h1 class="post-detail-title">Java vs JavaScript - So Sánh Chi Tiết</h1>
+            </div>
+
+            <!-- Post Layout with TOC -->
+            <div class="post-layout">
+                <!-- Table of Contents -->
+                <aside class="table-of-contents">
+                    <h3><i class="fas fa-list"></i> <span>Mục Lục</span></h3>
+                    <nav class="toc-nav">
+                        <a href="#gioi-thieu" class="toc-link">1.Giới Thiệu</a>
+                        <a href="#nguon-goc" class="toc-link">2.Nguồn Gốc & Lịch Sử</a>
+                        <a href="#cu-phap" class="toc-link">3.Cú Pháp Cơ Bản</a>
+                        <a href="#kieu-du-lieu" class="toc-link">4.Kiểu Dữ Liệu</a>
+                        <a href="#oop" class="toc-link">5.Lập Trình OOP</a>
+                        <a href="#moi-truong" class="toc-link">6.Môi Trường Chạy</a>
+                        <a href="#ung-dung" class="toc-link">7.Ứng Dụng Thực Tế</a>
+                        <a href="#ket-luan" class="toc-link">8.Kết Luận</a>
+                    </nav>
+                </aside>
+
+                <!-- Main Content -->
+                <main class="post-main-content">
+                    <!-- Section 1: Giới Thiệu -->
+                    <div id="gioi-thieu" class="content-section">
+                        <h2><span class="section-number">1</span> Giới Thiệu</h2>
+                        <p>
+                            <strong>Java</strong> và <strong>JavaScript</strong> là hai ngôn ngữ lập trình có tên gọi tương tự nhau, 
+                            điều này thường gây nhầm lẫn cho người mới bắt đầu. Tuy nhiên, về bản chất, đây là hai ngôn ngữ hoàn toàn 
+                            khác nhau về mục đích, cách thức hoạt động và lĩnh vực ứng dụng.
+                        </p>
+                        <p>
+                            Nhiều người nghĩ rằng JavaScript là phiên bản "script" của Java, nhưng thực tế không phải vậy. 
+                            Tên gọi "JavaScript" được chọn chủ yếu vì lý do marketing khi Java đang rất phổ biến vào những năm 1990. 
+                            Trong bài viết này, chúng ta sẽ đi sâu vào phân tích chi tiết sự khác biệt và điểm tương đồng giữa 
+                            hai ngôn ngữ này.
+                        </p>
+                    </div>
+
+                    <!-- Section 2: Nguồn Gốc -->
+                    <div id="nguon-goc" class="content-section">
+                        <h2><span class="section-number">2</span> Nguồn Gốc & Lịch Sử</h2>
+                        
+                        <h3>Java (1995)</h3>
+                        <ul>
+                            <li><strong>Được phát triển bởi:</strong> James Gosling tại Sun Microsystems (nay thuộc Oracle)</li>
+                            <li><strong>Mục đích ban đầu:</strong> Xây dựng ngôn ngữ cho các thiết bị điện tử</li>
+                            <li><strong>Phương châm:</strong> "Write Once, Run Anywhere" (WORA)</li>
+                            <li><strong>Đặc điểm:</strong> Ngôn ngữ biên dịch, hướng đối tượng, strongly typed</li>
+                        </ul>
+
+                        <h3>JavaScript (1995)</h3>
+                        <ul>
+                            <li><strong>Được phát triển bởi:</strong> Brendan Eich tại Netscape</li>
+                            <li><strong>Mục đích ban đầu:</strong> Tạo tính năng động cho trang web</li>
+                            <li><strong>Tên gọi ban đầu:</strong> Mocha, sau đó là LiveScript</li>
+                            <li><strong>Đặc điểm:</strong> Ngôn ngữ interpreted, dynamically typed, multi-paradigm</li>
+                        </ul>
+                    </div>
+
+                    <!-- Section 3: Cú Pháp -->
+                    <div id="cu-phap" class="content-section">
+                        <h2><span class="section-number">3</span> Cú Pháp Cơ Bản</h2>
+                        
+                        <h3>In ra màn hình</h3>
+                        <p><strong>Java:</strong></p>
+                        <ul>
+                            <li>Sử dụng <code>System.out.println()</code></li>
+                            <li>Phải có class và method main</li>
+                            <li>Cần khai báo kiểu dữ liệu rõ ràng</li>
+                        </ul>
+
+                        <p><strong>JavaScript:</strong></p>
+                        <ul>
+                            <li>Sử dụng <code>console.log()</code></li>
+                            <li>Không cần class hay method đặc biệt</li>
+                            <li>Không cần khai báo kiểu dữ liệu</li>
+                        </ul>
+
+                        <h3>Khai báo biến</h3>
+                        <p><strong>Java:</strong> Bắt buộc khai báo kiểu dữ liệu</p>
+                        <p><strong>JavaScript:</strong> Sử dụng var, let, hoặc const (không cần kiểu)</p>
+
+                        <h3>Khai báo hàm</h3>
+                        <p><strong>Java:</strong> Phải khai báo kiểu trả về và kiểu tham số</p>
+                        <p><strong>JavaScript:</strong> Sử dụng function, arrow function, không cần khai báo kiểu</p>
+                    </div>
+
+                    <!-- Section 4: Kiểu Dữ Liệu -->
+                    <div id="kieu-du-lieu" class="content-section">
+                        <h2><span class="section-number">4</span> Kiểu Dữ Liệu</h2>
+                        
+                        <h3>Java - Strongly Typed</h3>
+                        <ul>
+                            <li><strong>Primitive types:</strong> int, float, double, boolean, char, byte, short, long</li>
+                            <li><strong>Reference types:</strong> String, Arrays, Objects</li>
+                            <li><strong>Đặc điểm:</strong> Phải khai báo kiểu trước, không thể thay đổi kiểu</li>
+                            <li><strong>Type safety:</strong> Lỗi kiểu được phát hiện tại compile time</li>
+                        </ul>
+
+                        <h3>JavaScript - Dynamically Typed</h3>
+                        <ul>
+                            <li><strong>Primitive types:</strong> Number, String, Boolean, Undefined, Null, Symbol, BigInt</li>
+                            <li><strong>Reference type:</strong> Object (bao gồm arrays, functions)</li>
+                            <li><strong>Đặc điểm:</strong> Không cần khai báo kiểu, có thể thay đổi kiểu</li>
+                            <li><strong>Type coercion:</strong> Tự động chuyển đổi kiểu khi cần</li>
+                        </ul>
+
+                        <h3>So Sánh Chi Tiết</h3>
+                        <p>
+                            <strong>Java</strong> yêu cầu khai báo kiểu dữ liệu rõ ràng, giúp phát hiện lỗi sớm trong quá trình phát triển. 
+                            Điều này làm cho code Java an toàn hơn nhưng cũng dài dòng hơn.
+                        </p>
+                        <p>
+                            <strong>JavaScript</strong> linh hoạt hơn với dynamic typing, giúp viết code nhanh hơn nhưng dễ gặp lỗi 
+                            runtime do type coercion không mong muốn.
+                        </p>
+                    </div>
+
+                    <!-- Section 5: OOP -->
+                    <div id="oop" class="content-section">
+                        <h2><span class="section-number">5</span> Lập Trình Hướng Đối Tượng</h2>
+                        
+                        <h3>Java - Class-based OOP</h3>
+                        <ul>
+                            <li><strong>Classes:</strong> Định nghĩa template cho objects</li>
+                            <li><strong>Inheritance:</strong> Sử dụng từ khóa extends</li>
+                            <li><strong>Interfaces:</strong> Định nghĩa contracts</li>
+                            <li><strong>Access modifiers:</strong> public, private, protected, default</li>
+                            <li><strong>Abstract classes:</strong> Hỗ trợ abstraction</li>
+                        </ul>
+
+                        <h3>JavaScript - Prototype-based OOP</h3>
+                        <ul>
+                            <li><strong>Prototypes:</strong> Objects kế thừa từ prototypes</li>
+                            <li><strong>ES6 Classes:</strong> Syntactic sugar trên prototype</li>
+                            <li><strong>Inheritance:</strong> Thông qua prototype chain</li>
+                            <li><strong>No access modifiers:</strong> Mọi thứ đều public (trước ES2022)</li>
+                            <li><strong>Flexible:</strong> Có thể thêm properties/methods dynamically</li>
+                        </ul>
+
+                        <h3>Điểm Khác Biệt Chính</h3>
+                        <p>
+                            <strong>Java</strong> có cấu trúc OOP chặt chẽ với inheritance hierarchy rõ ràng, 
+                            access control nghiêm ngặt và compile-time type checking.
+                        </p>
+                        <p>
+                            <strong>JavaScript</strong> linh hoạt hơn với prototype-based inheritance, 
+                            cho phép thay đổi objects tại runtime và không có access control built-in.
+                        </p>
+                    </div>
+
+                    <!-- Section 6: Môi Trường -->
+                    <div id="moi-truong" class="content-section">
+                        <h2><span class="section-number">6</span> Môi Trường Chạy</h2>
+                        
+                        <h3>Java</h3>
+                        <ul>
+                            <li><strong>Platform:</strong> Java Virtual Machine (JVM)</li>
+                            <li><strong>Compilation:</strong> Source code (.java) → Bytecode (.class) → JVM</li>
+                            <li><strong>Đa nền tảng:</strong> Chạy trên bất kỳ hệ điều hành nào có JVM</li>
+                            <li><strong>Performance:</strong> JIT compilation giúp tối ưu hiệu năng</li>
+                            <li><strong>Use cases:</strong> Desktop apps, Android apps, Enterprise applications, Backend services</li>
+                        </ul>
+
+                        <h3>JavaScript</h3>
+                        <ul>
+                            <li><strong>Platform:</strong> Browser (V8, SpiderMonkey, JavaScriptCore) hoặc Node.js</li>
+                            <li><strong>Execution:</strong> Interpreted hoặc JIT compiled</li>
+                            <li><strong>Browser:</strong> Chạy trực tiếp trên trình duyệt</li>
+                            <li><strong>Node.js:</strong> Chạy server-side trên V8 engine</li>
+                            <li><strong>Use cases:</strong> Web frontend, Backend (Node.js), Mobile apps (React Native), Desktop apps (Electron)</li>
+                        </ul>
+
+                        <h3>Hiệu Năng</h3>
+                        <p>
+                            <strong>Java</strong> thường nhanh hơn JavaScript do compiled bytecode và tối ưu hóa JVM. 
+                            Phù hợp cho ứng dụng yêu cầu hiệu năng cao và xử lý dữ liệu lớn.
+                        </p>
+                        <p>
+                            <strong>JavaScript</strong> với V8 engine đã cải thiện hiệu năng đáng kể, đủ nhanh cho 
+                            hầu hết ứng dụng web. Node.js có hiệu năng tốt cho I/O operations nhờ non-blocking architecture.
+                        </p>
+                    </div>
+
+                    <!-- Section 7: Ứng Dụng -->
+                    <div id="ung-dung" class="content-section">
+                        <h2><span class="section-number">7</span> Ứng Dụng Thực Tế</h2>
+                        
+                        <h3>Khi Nào Dùng Java?</h3>
+                        <ul>
+                            <li><strong>Enterprise Applications:</strong> Hệ thống lớn, phức tạp</li>
+                            <li><strong>Android Development:</strong> Ứng dụng di động Android</li>
+                            <li><strong>Backend Services:</strong> RESTful APIs, microservices</li>
+                            <li><strong>Big Data:</strong> Hadoop, Spark</li>
+                            <li><strong>Financial Systems:</strong> Banking, trading platforms</li>
+                            <li><strong>Scientific Computing:</strong> Xử lý dữ liệu khoa học</li>
+                        </ul>
+
+                        <h3>Khi Nào Dùng JavaScript?</h3>
+                        <ul>
+                            <li><strong>Web Frontend:</strong> Giao diện tương tác động</li>
+                            <li><strong>Single Page Applications:</strong> React, Vue, Angular</li>
+                            <li><strong>Backend với Node.js:</strong> RESTful APIs, real-time apps</li>
+                            <li><strong>Mobile Apps:</strong> React Native, Ionic</li>
+                            <li><strong>Desktop Apps:</strong> Electron (VS Code, Slack)</li>
+                            <li><strong>IoT:</strong> Johnny-Five framework</li>
+                        </ul>
+
+                        <h3>Có Thể Học Cả Hai?</h3>
+                        <p>
+                            Hoàn toàn có thể và nên học cả hai! Mỗi ngôn ngữ có điểm mạnh riêng:
+                        </p>
+                        <ul>
+                            <li><strong>Java:</strong> Dạy bạn về strongly-typed programming, OOP chặt chẽ, design patterns</li>
+                            <li><strong>JavaScript:</strong> Dạy bạn về functional programming, async programming, web technologies</li>
+                            <li><strong>Full-stack:</strong> Kết hợp Java backend + JavaScript frontend là rất phổ biến</li>
+                            <li><strong>Tư duy:</strong> Học cả hai giúp bạn hiểu rõ hơn về programming paradigms khác nhau</li>
+                        </ul>
+                    </div>
+
+                    <!-- Section 8: Kết Luận -->
+                    <div id="ket-luan" class="content-section">
+                        <h2><span class="section-number">8</span> Kết Luận</h2>
+                        <p>
+                            <strong>Java</strong> và <strong>JavaScript</strong> là hai ngôn ngữ mạnh mẽ, mỗi ngôn ngữ có vai trò 
+                            và ứng dụng riêng trong thế giới phát triển phần mềm.
+                        </p>
+
+                        <h3>Tóm Tắt Điểm Khác Biệt</h3>
+                        <ul>
+                            <li><strong>Typing:</strong> Java (strongly-typed) vs JavaScript (dynamically-typed)</li>
+                            <li><strong>OOP:</strong> Java (class-based) vs JavaScript (prototype-based)</li>
+                            <li><strong>Compilation:</strong> Java (compiled) vs JavaScript (interpreted)</li>
+                            <li><strong>Platform:</strong> Java (JVM) vs JavaScript (Browser/Node.js)</li>
+                            <li><strong>Use cases:</strong> Java (enterprise/Android) vs JavaScript (web/full-stack)</li>
+                        </ul>
+
+                        <h3>Lựa Chọn Ngôn Ngữ</h3>
+                        <p>
+                            Không có ngôn ngữ nào "tốt hơn" ngôn ngữ kia. Lựa chọn phụ thuộc vào:
+                        </p>
+                        <ul>
+                            <li><strong>Dự án:</strong> Web app chọn JavaScript, Enterprise app chọn Java</li>
+                            <li><strong>Team:</strong> Kinh nghiệm và preference của team</li>
+                            <li><strong>Performance:</strong> Yêu cầu về hiệu năng và scalability</li>
+                            <li><strong>Ecosystem:</strong> Libraries và tools có sẵn</li>
+                        </ul>
+
+                        <p>
+                            <strong>Khuyến nghị:</strong> Nếu bạn mới bắt đầu, hãy học ngôn ngữ phù hợp với mục tiêu của bạn. 
+                            Muốn làm web? Bắt đầu với JavaScript. Muốn làm Android hoặc enterprise? Chọn Java. 
+                            Và quan trọng nhất, đừng ngừng học - cả hai ngôn ngữ đều đáng để thành thạo!
+                        </p>
+                    </div>
+
+                    <!-- Navigation -->
+                    <div class="post-navigation">
+                        <a href="post-10.html" class="nav-button">
+                            <i class="fas fa-arrow-left"></i> Bài trước
+                        </a>
+                        <a href="blog.html" class="nav-button">
+                            Về trang Blog <i class="fas fa-th"></i>
+                        </a>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; Đào Thanh Duy - IT</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

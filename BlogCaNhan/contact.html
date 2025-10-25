@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên Hệ - Đào Thanh Duy</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <h2>TD Blog</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html"><i class="fas fa-home"></i> Trang Chủ</a></li>
+                <li><a href="blog.html"><i class="fas fa-blog"></i> Bài viết</a></li>
+                <li><a href="contact.html" class="active"><i class="fas fa-envelope"></i> Liên hệ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contact Hero -->
+    <section class="contact-hero">
+        <div class="container">
+            <h1>Liên Hệ Với Tôi</h1>
+            <p>Hãy kết nối và cùng nhau phát triển!</p>
+        </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-container">
+                <div class="contact-intro">
+                    <h2><i class="fas fa-paper-plane"></i> Kết Nối Với Tôi</h2>
+                    <p>Tôi luôn sẵn sàng kết nối và trao đổi về lập trình, công nghệ. Đừng ngại liên hệ với tôi qua các kênh dưới đây!</p>
+                </div>
+
+                <div class="contact-links">
+                    <a href="mailto:thanhduy1278908@gmail.com" class="contact-item">
+                        <div class="contact-icon email-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-info">
+                            <h3>Email</h3>
+                            <p>thanhduy1278908@gmail.com</p>
+                            <span class="contact-label">Gửi email cho tôi</span>
+                        </div>
+                    </a>
+                    
+                    <a href="https://www.facebook.com/share/171UHpfPdP/?mibextid=wwXIfr" target="_blank" class="contact-item">
+                        <div class="contact-icon fb-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </div>
+                        <div class="contact-info">
+                            <h3>Facebook</h3>
+                            <p>Đào Thanh Duy</p>
+                            <span class="contact-label">Kết bạn trên Facebook</span>
+                        </div>
+                    </a>
+                    
+                    <a href="tel:+84966106xxx" class="contact-item">
+                        <div class="contact-icon phone-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-info">
+                            <h3>Điện thoại</h3>
+                            <p>+84 966 106 xxx</p>
+                            <span class="contact-label">Gọi điện cho tôi</span>
+                        </div>
+                    </a>
+                    
+    
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-section">
+                    <h2><i class="fas fa-comment-dots"></i> Gửi Tin Nhắn</h2>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name"><i class="fas fa-user"></i> Họ và tên</label>
+                            <input type="text" id="name" name="name" required placeholder="Nhập họ tên của bạn">
+                        </div>
+                        <div class="form-group">
+                            <label for="email"><i class="fas fa-envelope"></i> Email</label>
+                            <input type="email" id="email" name="email" required placeholder="Nhập email của bạn">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject"><i class="fas fa-tag"></i> Tiêu đề</label>
+                            <input type="text" id="subject" name="subject" required placeholder="Tiêu đề tin nhắn">
+                        </div>
+                        <div class="form-group">
+                            <label for="message"><i class="fas fa-comment"></i> Nội dung</label>
+                            <textarea id="message" name="message" rows="6" required placeholder="Nội dung tin nhắn của bạn..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">
+                            <i class="fas fa-paper-plane"></i> Gửi Tin Nhắn
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+      <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; Đào Thanh Duy - IT</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

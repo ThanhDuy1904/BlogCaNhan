@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Hành Trình Học Java & JavaScript</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <h2>TD Blog</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html"><i class="fas fa-home"></i> Trang Chủ</a></li>
+                <li><a href="blog.html" class="active"><i class="fas fa-blog"></i> Bài viết</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> Liên hệ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Blog Header -->
+    <section class="blog-header">
+        <div class="container">
+            <h1><i class="fas fa-book-open"></i> Bài Viết Của Tôi</h1>
+            <p>Chia sẻ kiến thức và kinh nghiệm học Java, JavaScript & PHP</p>
+            
+            <!-- Filter Buttons -->
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-th"></i> Tất Cả
+                </button>
+                <button class="filter-btn" data-filter="java">
+                    <i class="fab fa-java"></i> Java
+                </button>
+                <button class="filter-btn" data-filter="javascript">
+                    <i class="fab fa-js"></i> JavaScript
+                </button>
+                <button class="filter-btn" data-filter="php">
+                    <i class="fab fa-php"></i> PHP
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Posts Grid -->
+    <section class="blog-posts">
+        <div class="container">
+            <div class="posts-grid">
+                <!-- Post 1 -->
+                <article class="post-card-grid" data-category="java">
+                    <div class="post-category java"><i class="fab fa-java"></i> Java</div>
+                    <h3 class="post-title-grid"><span class="post-number-inline">1.</span> Giới Thiệu Về Java</h3>
+                    <p class="post-excerpt-grid">
+                        Ngôn ngữ lập trình hướng đối tượng mạnh mẽ, đa nền tảng với phương châm "Write Once, Run Anywhere"
+                    </p>
+                    <a href="post-1.html" class="btn-read-post">
+                        Đọc bài viết <i class="fas fa-arrow-right"></i>
+                    </a>
+                </article>
+
+                <!-- Post 2 -->
+                <article class="post-card-grid" data-category="java">
+                    <div class="post-category java"><i class="fab fa-java"></i> Java</div>
+                    <h3 class="post-title-grid"><span class="post-number-inline">2.</span> Lập Trình Hướng Đối Tượng (OOP)</h3>
+                    <p class="post-excerpt-grid">
+                        4 tính chất cơ bản: Encapsulation, Inheritance, Polymorphism và Abstraction trong Java
+                    </p>
+                    <a href="post-2.html" class="btn-read-post">
+                        Đọc bài viết <i class="fas fa-arrow-right"></i>
+                    </a>
+                </article>
+
+                <!-- Post 3 -->
+                <article class="post-card-grid" data-category="java">
+                    <div class="post-category java"><i class="fab fa-java"></i> Java</div>
+                    <h3 class="post-title-grid"><span class="post-number-inline">3.</span> Collections Framework</h3>
+                    <p class="post-excerpt-grid">
+                        Quản lý dữ liệu hiệu quả với List, Set, Map và Queue trong Java Collections Framework
+                    </p>
+                    <a href="post-3.html" class="btn-read-post">
+                        Đọc bài viết <i class="fas fa-arrow-right"></i>
+                    </a>
+                </article>
+
+                <!-- Post 4 -->
+                <article class="post-card-grid" data-category="java">
+                    <div class="post-category java"><i class="fab fa-java"></i> Java</div>
+                    <h3 class="post-title-grid"><span class="post-number-inline">4.</span> Exception Handling</h3>
+                    <p class="post-excerpt-grid">
+                        Xử lý lỗi chuyên nghiệp với try-catch-finally và custom exceptions trong Java
+                    </p>
+                    <a href="post-4.html" class="btn-read-post">
+                        Đọc bài viết <i class="fas fa-arrow-right"></i>
+                    </a>
+                </article>
+
+                <!-- Post 5 -->
+                <article class="post-card-grid" data-category="javascript">
+                    <div class="post-category javascript"><i class="fab fa-js"></i> JavaScript</div>
+                    <h3 class="post-title-grid"><span class="post-number-inline">5.</span> Giới Thiệu Về JavaScript</h3>
+                    <p class="post-excerpt-grid">
+                        Ngôn ngữ web động phổ biến nhất, từ frontend đến backend với Node.js
+                    </p>
+                    <a href="post-5.html" class="btn-read-post">
+                        Đọc bài viết <i class="fas fa-arrow-right"></i>
+                    </a>
+                </article>
+
+                <!-- Post 6 -->
+                <article class="post-card-grid" data-category="javascript">
+                    <div class="post-category javascript"><i class="fab fa-js"></i> JavaScript</div>
+                    <h3 class="post-title-grid"><span class="post-number-inline">6.</span> Biến, Kiểu Dữ Liệu và Hàm</h3>
+                    <p class="post-excerpt-grid">
+                        Nền tảng JavaScript: var, let, const, primitive types và arrow functions
+                    </p>
+                    <a href="post-6.html" class="btn-read-post">
+                        Đọc bài viết <i class="fas fa-arrow-right"></i>
+                    </a>
+                </article>
+
+                <!-- Post 7 -->
+                <article class="post-card-grid" data-category="javascript">
+                    <div class="post-category javascript"><i class="fab fa-js"></i> JavaScript</div>
+                    <h3 class="post-title-grid"><span class="post-number-inline">7.</span> DOM Manipulation</h3>
+                    <p class="post-excerpt-grid">
+                        Tương tác với trang web: selecting, modifying elements và event handling
+                    </p>
+                    <a href="post-7.html" class="btn-read-post">
+                        Đọc bài viết <i class="fas fa-arrow-right"></i>
+                    </a>
+                </article>
+
+                <!-- Post 8 -->
+                <article class="post-card-grid" data-category="javascript">
+                    <div class="post-category javascript"><i class="fab fa-js"></i> JavaScript</div>
+                    <h3 class="post-title-grid"><span class="post-number-inline">8.</span> Async JavaScript</h3>
+                    <p class="post-excerpt-grid">
+                        Lập trình bất đồng bộ với Promises, async/await và Fetch API
+                    </p>
+                    <a href="post-8.html" class="btn-read-post">
+                        Đọc bài viết <i class="fas fa-arrow-right"></i>
+                    </a>
+                </article>
+
+                <!-- Post 9 -->
+                <article class="post-card-grid" data-category="php">
+                    <div class="post-category php"><i class="fab fa-php"></i> PHP</div>
+                    <h3 class="post-title-grid"><span class="post-number-inline">9.</span> Giới Thiệu Về PHP</h3>
+                    <p class="post-excerpt-grid">
+                        Ngôn ngữ lập trình server-side phổ biến nhất cho web development
+                    </p>
+                    <a href="post-9.html" class="btn-read-post">
+                        Đọc bài viết <i class="fas fa-arrow-right"></i>
+                    </a>
+                </article>
+
+                <!-- Post 10 -->
+                <article class="post-card-grid" data-category="php">
+                    <div class="post-category php"><i class="fab fa-php"></i> PHP</div>
+                    <h3 class="post-title-grid"><span class="post-number-inline">10.</span> PHP và MySQL</h3>
+                    <p class="post-excerpt-grid">
+                        Kết nối và thao tác với cơ sở dữ liệu MySQL sử dụng PHP và PDO
+                    </p>
+                    <a href="post-10.html" class="btn-read-post">
+                        Đọc bài viết <i class="fas fa-arrow-right"></i>
+                    </a>
+                </article>
+
+                <!-- Post 11 -->
+                <article class="post-card-grid" data-category="compare">
+                    <div class="post-category compare"><i class="fas fa-code-branch"></i> So Sánh</div>
+                    <h3 class="post-title-grid"><span class="post-number-inline">11.</span> Java vs JavaScript</h3>
+                    <p class="post-excerpt-grid">
+                        So sánh chi tiết sự giống và khác nhau giữa hai ngôn ngữ lập trình
+                    </p>
+                    <a href="post-11.html" class="btn-read-post">
+                        Đọc bài viết <i class="fas fa-arrow-right"></i>
+                    </a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; Đào Thanh Duy - IT</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

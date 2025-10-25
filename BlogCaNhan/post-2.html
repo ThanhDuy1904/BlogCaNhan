@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 2: Lập Trình Hướng Đối Tượng (OOP) - TD Blog</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo"><h2>TD Blog</h2></div>
+            <ul class="nav-menu">
+                <li><a href="index.html"><i class="fas fa-home"></i> Trang Chủ</a></li>
+                <li><a href="blog.html"><i class="fas fa-blog"></i> Bài viết</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> Liên hệ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <article class="post-detail">
+        <div class="container">
+            <div class="post-detail-header">
+                <a href="blog.html" class="back-link"><i class="fas fa-arrow-left"></i> Quay lại</a>
+                <div class="post-meta">
+                    <span class="post-number-large">Bài 2</span>
+                    <span class="post-category java"><i class="fab fa-java"></i> Java</span>
+                </div>
+                <h1 class="post-detail-title">Lập Trình Hướng Đối Tượng (OOP) Trong Java</h1>
+            </div>
+
+            <div class="post-layout">
+                <aside class="table-of-contents">
+                    <h3><i class="fas fa-list"></i> Mục Lục</h3>
+                    <nav class="toc-nav">
+                        <a href="#section-1" class="toc-link">1.OOP là gì?</a>
+                        <a href="#section-2" class="toc-link">2.Encapsulation (Đóng gói)</a>
+                        <a href="#section-3" class="toc-link">3.Inheritance (Kế thừa)</a>
+                        <a href="#section-4" class="toc-link">4.Polymorphism (Đa hình)</a>
+                        <a href="#section-5" class="toc-link">5.Abstraction (Trừu tượng)</a>
+                        <a href="#section-6" class="toc-link">6.Lợi ích của OOP</a>
+                    </nav>
+                </aside>
+
+                <div class="post-main-content">
+                    <section id="section-1" class="content-section">
+                        <h2><span class="section-number">1</span> OOP là gì?</h2>
+                        <p>
+                            Lập trình hướng đối tượng (Object-Oriented Programming - OOP) là một phương pháp lập trình 
+                            dựa trên khái niệm "đối tượng", có thể chứa dữ liệu dưới dạng thuộc tính (attributes/fields) 
+                            và code dưới dạng phương thức (methods). Java là ngôn ngữ OOP thuần túy, mọi thứ trong Java 
+                            đều là đối tượng (trừ các kiểu dữ liệu nguyên thủy).
+                        </p>
+                        <p>
+                            OOP giúp tổ chức code theo cách gần gũi với thế giới thực, mỗi đối tượng đại diện cho một 
+                            thực thể có thuộc tính và hành vi riêng. Ví dụ: một đối tượng "Xe hơi" có thuộc tính như 
+                            màu sắc, tốc độ, và hành vi như chạy, dừng, rẽ.
+                        </p>
+                        <h3>Khái niệm cơ bản</h3>
+                        <ul>
+                            <li><strong>Class (Lớp):</strong> Là bản thiết kế (blueprint) để tạo ra các đối tượng</li>
+                            <li><strong>Object (Đối tượng):</strong> Là thể hiện (instance) cụ thể của một class</li>
+                            <li><strong>Attribute (Thuộc tính):</strong> Là dữ liệu của đối tượng</li>
+                            <li><strong>Method (Phương thức):</strong> Là hành vi của đối tượng</li>
+                        </ul>
+                    </section>
+
+                    <section id="section-2" class="content-section">
+                        <h2><span class="section-number">2</span> Encapsulation (Đóng gói)</h2>
+                        <p>
+                            Encapsulation là việc gói dữ liệu (attributes) và các phương thức xử lý dữ liệu đó vào một 
+                            đơn vị duy nhất gọi là class. Dữ liệu được ẩn đi (private) và chỉ có thể truy cập thông qua 
+                            các phương thức public (getter và setter).
+                        </p>
+                        <h3>Lợi ích của Encapsulation</h3>
+                        <ul>
+                            <li>Bảo vệ dữ liệu khỏi truy cập trái phép</li>
+                            <li>Kiểm soát cách dữ liệu được đọc và ghi</li>
+                            <li>Dễ dàng thay đổi implementation mà không ảnh hưởng code bên ngoài</li>
+                            <li>Tăng tính bảo mật và linh hoạt</li>
+                        </ul>
+                        <h3>Ví dụ về Encapsulation</h3>
+                        <pre><code>public class Student {
+    // Private attributes - ẩn dữ liệu
+    private String name;
+    private int age;
+    private double gpa;
+    
+    // Constructor
+    public Student(String name, int age, double gpa) {
+        this.name = name;
+        this.age = age;
+        this.gpa = gpa;
+    }
+    
+    // Getter methods - để đọc dữ liệu
+    public String getName() {
+        return name;
+    }
+    
+    public int getAge() {
+        return age;
+    }
+    
+    public double getGpa() {
+        return gpa;
+    }
+    
+    // Setter methods - để ghi dữ liệu với validation
+    public void setName(String name) {
+        if (name != null && !name.isEmpty()) {
+            this.name = name;
+        }
+    }
+    
+    public void setAge(int age) {
+        if (age > 0 && age < 150) {
+            this.age = age;
+        }
+    }
+    
+    public void setGpa(double gpa) {
+        if (gpa >= 0.0 && gpa <= 4.0) {
+            this.gpa = gpa;
+        }
+    }
+    
+    // Method để hiển thị thông tin
+    public void displayInfo() {
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+        System.out.println("GPA: " + gpa);
+    }
+}</code></pre>
+                    </section>
+
+                    <section id="section-3" class="content-section">
+                        <h2><span class="section-number">3</span> Inheritance (Kế thừa)</h2>
+                        <p>
+                            Inheritance cho phép một class (class con - subclass) kế thừa các thuộc tính và phương thức 
+                            từ class khác (class cha - superclass). Điều này giúp tái sử dụng code và tạo mối quan hệ 
+                            phân cấp giữa các class.
+                        </p>
+                        <h3>Các loại Inheritance trong Java</h3>
+                        <ul>
+                            <li><strong>Single Inheritance:</strong> Một class chỉ kế thừa từ một class cha</li>
+                            <li><strong>Multilevel Inheritance:</strong> Class A → Class B → Class C</li>
+                            <li><strong>Hierarchical Inheritance:</strong> Nhiều class con kế thừa từ một class cha</li>
+                        </ul>
+                        <p><em>Lưu ý: Java không hỗ trợ Multiple Inheritance (một class kế thừa từ nhiều class) 
+                        để tránh Diamond Problem. Thay vào đó, sử dụng Interface.</em></p>
+                        <h3>Ví dụ về Inheritance</h3>
+                        <pre><code>// Class cha (Superclass)
+public class Person {
+    protected String name;
+    protected int age;
+    
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+    
+    public void introduce() {
+        System.out.println("Hello, I'm " + name);
+    }
+}
+
+// Class con (Subclass) kế thừa từ Person
+public class Student extends Person {
+    private String studentId;
+    private double gpa;
+    
+    public Student(String name, int age, String studentId, double gpa) {
+        super(name, age); // Gọi constructor của class cha
+        this.studentId = studentId;
+        this.gpa = gpa;
+    }
+    
+    // Override method từ class cha
+    @Override
+    public void introduce() {
+        System.out.println("Hi, I'm " + name + ", student ID: " + studentId);
+    }
+    
+    public void study() {
+        System.out.println(name + " is studying...");
+    }
+}
+
+// Class con khác
+public class Teacher extends Person {
+    private String subject;
+    private int experience;
+    
+    public Teacher(String name, int age, String subject, int experience) {
+        super(name, age);
+        this.subject = subject;
+        this.experience = experience;
+    }
+    
+    @Override
+    public void introduce() {
+        System.out.println("Hello, I'm " + name + ", I teach " + subject);
+    }
+    
+    public void teach() {
+        System.out.println(name + " is teaching " + subject);
+    }
+}</code></pre>
+                    </section>
+
+                    <section id="section-4" class="content-section">
+                        <h2><span class="section-number">4</span> Polymorphism (Đa hình)</h2>
+                        <p>
+                            Polymorphism cho phép một phương thức có thể có nhiều hình thái khác nhau. Trong Java, 
+                            có hai loại Polymorphism: Compile-time (Static) và Runtime (Dynamic).
+                        </p>
+                        <h3>Method Overloading (Compile-time Polymorphism)</h3>
+                        <p>Nhiều methods cùng tên nhưng khác tham số trong cùng một class.</p>
+                        <pre><code>public class Calculator {
+    // Overloading - cùng tên khác tham số
+    public int add(int a, int b) {
+        return a + b;
+    }
+    
+    public double add(double a, double b) {
+        return a + b;
+    }
+    
+    public int add(int a, int b, int c) {
+        return a + b + c;
+    }
+    
+    public String add(String a, String b) {
+        return a + b;
+    }
+}</code></pre>
+                        <h3>Method Overriding (Runtime Polymorphism)</h3>
+                        <p>Class con ghi đè (override) method của class cha.</p>
+                        <pre><code>public class Animal {
+    public void makeSound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+public class Dog extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("Woof! Woof!");
+    }
+}
+
+public class Cat extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("Meow! Meow!");
+    }
+}
+
+// Sử dụng
+public class Main {
+    public static void main(String[] args) {
+        Animal myAnimal;
+        
+        myAnimal = new Dog();
+        myAnimal.makeSound(); // Output: Woof! Woof!
+        
+        myAnimal = new Cat();
+        myAnimal.makeSound(); // Output: Meow! Meow!
+    }
+}</code></pre>
+                    </section>
+
+                    <section id="section-5" class="content-section">
+                        <h2><span class="section-number">5</span> Abstraction (Trừu tượng)</h2>
+                        <p>
+                            Abstraction là việc ẩn đi chi tiết triển khai và chỉ hiển thị tính năng thiết yếu. 
+                            Trong Java, Abstraction được thực hiện thông qua Abstract Class và Interface.
+                        </p>
+                        <h3>Abstract Class</h3>
+                        <p>Là class không thể khởi tạo trực tiếp, có thể chứa abstract methods và concrete methods.</p>
+                        <pre><code>public abstract class Shape {
+    protected String color;
+    
+    public Shape(String color) {
+        this.color = color;
+    }
+    
+    // Abstract method - không có implementation
+    public abstract double calculateArea();
+    public abstract double calculatePerimeter();
+    
+    // Concrete method - có implementation
+    public void displayColor() {
+        System.out.println("Color: " + color);
+    }
+}
+
+public class Circle extends Shape {
+    private double radius;
+    
+    public Circle(String color, double radius) {
+        super(color);
+        this.radius = radius;
+    }
+    
+    @Override
+    public double calculateArea() {
+        return Math.PI * radius * radius;
+    }
+    
+    @Override
+    public double calculatePerimeter() {
+        return 2 * Math.PI * radius;
+    }
+}
+
+public class Rectangle extends Shape {
+    private double width;
+    private double height;
+    
+    public Rectangle(String color, double width, double height) {
+        super(color);
+        this.width = width;
+        this.height = height;
+    }
+    
+    @Override
+    public double calculateArea() {
+        return width * height;
+    }
+    
+    @Override
+    public double calculatePerimeter() {
+        return 2 * (width + height);
+    }
+}</code></pre>
+                        <h3>Interface</h3>
+                        <p>Là contract hoàn toàn trừu tượng, tất cả methods đều abstract (trước Java 8).</p>
+                        <pre><code>public interface Drawable {
+    void draw(); // abstract by default
+    void resize(double factor);
+}
+
+public interface Movable {
+    void move(int x, int y);
+}
+
+// Class có thể implement nhiều interfaces
+public class Square implements Drawable, Movable {
+    private int x, y;
+    private double side;
+    
+    @Override
+    public void draw() {
+        System.out.println("Drawing square at (" + x + ", " + y + ")");
+    }
+    
+    @Override
+    public void resize(double factor) {
+        side *= factor;
+        System.out.println("Resized to: " + side);
+    }
+    
+    @Override
+    public void move(int newX, int newY) {
+        x = newX;
+        y = newY;
+        System.out.println("Moved to: (" + x + ", " + y + ")");
+    }
+}</code></pre>
+                    </section>
+
+                    <section id="section-6" class="content-section">
+                        <h2><span class="section-number">6</span> Lợi ích của OOP</h2>
+                        <ul>
+                            <li><strong>Tái sử dụng code:</strong> Thông qua Inheritance và Polymorphism</li>
+                            <li><strong>Dễ bảo trì:</strong> Code được tổ chức rõ ràng, dễ tìm và sửa lỗi</li>
+                            <li><strong>Linh hoạt:</strong> Dễ dàng mở rộng và thêm tính năng mới</li>
+                            <li><strong>Bảo mật:</strong> Encapsulation bảo vệ dữ liệu</li>
+                            <li><strong>Dễ hiểu:</strong> Mô hình hóa gần với thế giới thực</li>
+                            <li><strong>Giảm độ phức tạp:</strong> Chia nhỏ vấn đề thành các đối tượng</li>
+                        </ul>
+                    </section>
+
+                    <div class="post-navigation">
+                        <a href="post-1.html" class="nav-button"><i class="fas fa-arrow-left"></i> Bài trước</a>
+                        <a href="blog.html" class="nav-button"><i class="fas fa-th"></i> Tất cả bài viết</a>
+                        <a href="post-3.html" class="nav-button">Bài tiếp theo <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+      <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; Đào Thanh Duy - IT</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
